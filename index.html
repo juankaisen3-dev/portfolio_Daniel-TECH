@@ -1701,6 +1701,50 @@ document.querySelector('.game-window')?.addEventListener('click', function(event
                 drawRoad();
                 drawCar();
             });
+            // Vérification que les boutons sont bien dans le DOM
+document.addEventListener('DOMContentLoaded', function() {
+    const startBtn = document.getElementById('startGame');
+    const resetBtn = document.getElementById('resetGame');
+    const gameControls = document.querySelector('.game-controls');
+    
+    console.log('Start button:', startBtn);
+    console.log('Reset button:', resetBtn);
+    console.log('Game controls:', gameControls);
+    
+    // Si les boutons n'existent pas, les créer dynamiquement
+    if (!startBtn || !resetBtn) {
+        createGameButtons();
+    }
+});
+
+// Fonction pour créer les boutons s'ils n'existent pas
+function createGameButtons() {
+    const gameControls = document.querySelector('.game-controls');
+    
+    if (gameControls) {
+        gameControls.innerHTML = `
+            <button class="game-btn" id="startGame">Commencer</button>
+            <button class="game-btn" id="resetGame">Réinitialiser</button>
+        `;
+        
+        // Réattacher les événements
+        attachGameEvents();
+    }
+}
+
+// Réattacher les événements aux nouveaux boutons
+function attachGameEvents() {
+    const startBtn = document.getElementById('startGame');
+    const resetBtn = document.getElementById('resetGame');
+    
+    if (startBtn) {
+        startBtn.addEventListener('click', startGameFunction);
+    }
+    
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetGameFunction);
+    }
+}
         
             // Initialiser l'affichage du jeu
             drawRoad();
@@ -1711,6 +1755,7 @@ document.querySelector('.game-window')?.addEventListener('click', function(event
     
 </body>
 </html>
+
 
 
 
