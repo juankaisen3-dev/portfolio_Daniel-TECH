@@ -1698,6 +1698,25 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+            // Vérification de la position du chatbot
+function checkChatbotPosition() {
+    const chatbot = document.querySelector('.chatbot-window');
+    const container = document.querySelector('.chatbot-container');
+    
+    if (chatbot && container) {
+        console.log('Chatbot position:', {
+            chatbotRight: chatbot.style.right,
+            chatbotLeft: chatbot.style.left,
+            containerRight: container.style.right,
+            windowWidth: window.innerWidth
+        });
+    }
+}
+
+// Tester quand le chatbot s'ouvre
+document.querySelector('.chatbot-toggle').addEventListener('click', function() {
+    setTimeout(checkChatbotPosition, 100);
+});
 
 // Empêcher la fermeture quand on clique à l'intérieur
 document.querySelector('.chatbot-window')?.addEventListener('click', function(event) {
@@ -1966,6 +1985,7 @@ function attachGameEvents() {
     
 </body>
 </html>
+
 
 
 
