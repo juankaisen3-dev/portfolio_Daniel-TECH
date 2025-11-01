@@ -522,14 +522,205 @@
             background-color: var(--secondary-color);
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
+        /* Footer styles */
+        .cv-footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .availability-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .social-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-footer a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .social-footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .download-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+        }
+
+        .file-size {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-legal {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-stats {
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive design amélioré */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 95%;
+            }
+        }
+
+        @media (max-width: 992px) {
             .slide h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .slide p {
+                font-size: 1.3rem;
+            }
+            
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .title {
                 font-size: 1.2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .game-window {
+                width: 350px;
+                height: 450px;
+            }
+            
+            .chatbot-window {
+                width: 320px;
+                height: 420px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide h1 {
+                font-size: 2.2rem;
+            }
+            
+            .slide p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .slide-icon {
+                font-size: 4rem;
             }
             
             .timeline::after {
@@ -553,48 +744,195 @@
             .game-window {
                 width: 300px;
                 height: 400px;
+                left: 50%;
+                transform: translateX(-50%);
             }
             
             .chatbot-window {
                 width: 300px;
                 height: 400px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .game-container, .chatbot-container {
+                bottom: 10px;
+            }
+            
+            .game-toggle, .chatbot-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-stats {
+                text-align: center;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .container {
                 padding: 10px;
             }
             
             header {
-                padding: 40px 15px;
+                padding: 30px 15px;
             }
             
             .profile-img {
-                width: 140px;
-                height: 140px;
+                width: 130px;
+                height: 130px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .title {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             section {
-                padding: 20px;
+                padding: 20px 15px;
             }
             
             .game-window, .chatbot-window {
                 width: 280px;
                 height: 380px;
             }
+            
+            #gameCanvas {
+                width: 260px;
+                height: 350px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-links a {
+                font-size: 1.3rem;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+            
+            .progress-bar {
+                width: 150px;
+            }
+            
+            .skip-btn {
+                bottom: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .slide h1 {
+                font-size: 1.8rem;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+            }
+            
+            .slide-icon {
+                font-size: 3rem;
+            }
+            
+            .game-window, .chatbot-window {
+                width: 260px;
+                height: 360px;
+            }
+            
+            #gameCanvas {
+                width: 240px;
+                height: 320px;
+            }
+            
+            .game-controls {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .game-btn {
+                width: 100%;
+            }
+            
+            .chatbot-input {
+                flex-wrap: wrap;
+            }
+            
+            .chatbot-input input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Améliorations pour l'orientation paysage sur mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .slideshow-container {
+                position: absolute;
+                height: 100%;
+            }
+            
+            .slide {
+                padding: 10px;
+            }
+            
+            .slide h1 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .slide-icon {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .progress-bar {
+                bottom: 15px;
+            }
+            
+            .skip-btn {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Support pour les écrans très larges */
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1400px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Le reste de votre code HTML reste inchangé -->
     <!-- Diaporama d'introduction -->
     <div class="slideshow-container">
         <div class="slide active">
@@ -662,7 +1000,7 @@
                         <span>30%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
+                        <div class="skill-level" style="width: 30%"></div>
                     </div>
                 </div>
                 <div class="skill">
@@ -671,16 +1009,16 @@
                         <span>5%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%"></div>
+                        <div class="skill-level" style="width: 5%"></div>
                     </div>
                 </div>
                 <div class="skill">
                     <div class="skill-name">
                         <span>Node.js</span>
-                        <span>50%</span>
+                        <span>2%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 50%"></div>
+                        <div class="skill-level" style="width: 2%"></div>
                     </div>
                 </div>
                 <div class="skill">
@@ -689,7 +1027,7 @@
                         <span>5%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 75%"></div>
+                        <div class="skill-level" style="width: 5%"></div>
                     </div>
                 </div>
                 <div class="skill">
@@ -698,7 +1036,7 @@
                         <span>30%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 70%"></div>
+                        <div class="skill-level" style="width: 30%"></div>
                     </div>
                 </div>
             </div>
@@ -801,7 +1139,75 @@
         </div>
     </div>
 
+    <footer class="cv-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Disponibilité</h3>
+                <p>Recherche active de nouvelles opportunités</p>
+                <p>Disponible immédiatement</p>
+                <div class="availability-status">
+                    <span class="status-dot"></span>
+                    <span>Disponible</span>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+    <h3>Contact</h3>
+    <div class="contact-info">
+        <p>
+            <i class="fas fa-envelope"></i> 
+            <a href="mailto:Juankaisen3@example.com" style="color: white; text-decoration: none;">
+                Juankaisen3@example.com
+            </a>
+        </p>
+        <p>
+            <i class="fas fa-phone"></i> 
+            <a href="tel:+241074085772" style="color: white; text-decoration: none;">
+                +241 074085772
+            </a>
+        </p>
+        <p><i class="fas fa-map-marker-alt"></i> Gabon, Libreville</p>
+    </div>
+</div>
+            
+            <div class="footer-section">
+                <h3>Réseaux</h3>
+                <div class="social-footer">
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-codepen"></i> CodePen</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Téléchargement</h3>
+                <button class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Télécharger le CV PDF
+                </button>
+                <p class="file-size">PDF - 245 Ko</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <p>&copy; 2025 Daniel_Oyougou Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Plan du site</a>
+                </div>
+            </div>
+            <div class="footer-stats">
+                <p>Dernière mise à jour: 01/11/2025</p>
+                <p>Visiteurs: <span id="visitorCount">1,247</span></p>
+            </div>
+        </div>
+    </footer>
+
     <script>
+        // Le code JavaScript reste inchangé
         // Gestion du diaporama d'introduction
         document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.slide');
@@ -1124,62 +1530,5 @@
             drawCar();
         });
     </script>
-    <footer class="cv-footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Disponibilité</h3>
-            <p>Recherche active de nouvelles opportunités</p>
-            <p>Disponible immédiatement</p>
-            <div class="availability-status">
-                <span class="status-dot"></span>
-                <span>Disponible</span>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Contact</h3>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> Juan@example.com</p>
-                <p><i class="fas fa-phone"></i> +241 074085772</p>
-                <p><i class="fas fa-map-marker-alt"></i> Gabon, Libreville</p>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Réseaux</h3>
-            <div class="social-footer">
-                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="#"><i class="fab fa-codepen"></i> CodePen</a>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Téléchargement</h3>
-            <button class="download-btn">
-                <i class="fas fa-download"></i>
-                Télécharger le CV PDF
-            </button>
-            <p class="file-size">PDF - 245 Ko</p>
-        </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <div class="footer-legal">
-            <p>&copy; 2025 Daniel_Oyougou Tous droits réservés.</p>
-            <div class="footer-links">
-                <a href="#">Mentions légales</a>
-                <a href="#">Politique de confidentialité</a>
-                <a href="#">Plan du site</a>
-            </div>
-        </div>
-        <div class="footer-stats">
-            <p>Dernière mise à jour: 01/11/2025</p>
-            <p>Visiteurs: <span id="visitorCount">1,247</span></p>
-        </div>
-    </div>
-</footer>
-   <script src="script.js"></script>
 </body>
 </html>
