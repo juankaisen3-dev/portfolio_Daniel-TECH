@@ -1277,6 +1277,37 @@
         max-width: 200px;
     }
 }
+          /* Styles pour les contrôles tactiles */
+.touch-controls {
+    touch-action: manipulation; /* Améliore la réactivité tactile */
+}
+
+.left-btn, .right-btn {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    border: 3px solid white;
+}
+
+/* Feedback visuel pendant le touch */
+.left-btn:active, .right-btn:active {
+    transform: scale(0.95);
+    background-color: #2c5282 !important;
+}
+
+/* Cacher les boutons sur desktop si nécessaire */
+@media (min-width: 1024px) {
+    .touch-controls {
+        display: none;
+    }
+}
+
+/* Sur mobile, cacher les instructions clavier */
+@media (max-width: 768px) {
+    .game-controls .key-instructions {
+        display: none;
+    }
+}
         /* RESET URGENCE CHATBOT */
 .chatbot-container {
     right: 20px !important;
@@ -2062,6 +2093,7 @@ function attachGameEvents() {
     
 </body>
 </html>
+
 
 
 
