@@ -665,270 +665,397 @@
             opacity: 0.8;
         }
 
-        /* Responsive design amélioré */
-        @media (max-width: 1200px) {
-            .container {
-                max-width: 95%;
-            }
-        }
+           /* Responsive design amélioré */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+}
 
-        @media (max-width: 992px) {
-            .slide h1 {
-                font-size: 2.8rem;
-            }
-            
-            .slide p {
-                font-size: 1.3rem;
-            }
-            
-            .profile-img {
-                width: 160px;
-                height: 160px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .title {
-                font-size: 1.2rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            .game-window {
-                width: 350px;
-                height: 450px;
-            }
-            
-            .chatbot-window {
-                width: 320px;
-                height: 420px;
-            }
-        }
+@media (max-width: 992px) {
+    .slide h1 {
+        font-size: 2.8rem;
+    }
+    
+    .slide p {
+        font-size: 1.3rem;
+    }
+    
+    .profile-img {
+        width: 160px;
+        height: 160px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .title {
+        font-size: 1.2rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
 
-        @media (max-width: 768px) {
-            .slide h1 {
-                font-size: 2.2rem;
-            }
-            
-            .slide p {
-                font-size: 1.1rem;
-                padding: 0 15px;
-            }
-            
-            .slide-icon {
-                font-size: 4rem;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .left, .right {
-                left: 0;
-            }
-            
-            .game-window {
-                width: 300px;
-                height: 400px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .chatbot-window {
-                width: 300px;
-                height: 400px;
-                right: 50%;
-                transform: translateX(50%);
-            }
-            
-            .game-container, .chatbot-container {
-                bottom: 10px;
-            }
-            
-            .game-toggle, .chatbot-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-stats {
-                text-align: center;
-            }
-        }
+@media (max-width: 768px) {
+    .slide h1 {
+        font-size: 2.2rem;
+    }
+    
+    .slide p {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+    
+    .slide-icon {
+        font-size: 4rem;
+    }
+    
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 21px;
+    }
+    
+    .left, .right {
+        left: 0;
+    }
+    
+    /* Chatbot responsive */
+    .chatbot-window {
+        width: 90vw;
+        height: 60vh;
+        right: 5vw;
+        left: 5vw;
+        bottom: 80px;
+    }
+    
+    /* Game responsive */
+    .game-window {
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        right: 5vw;
+        bottom: 80px;
+    }
+    
+    .chatbot-messages {
+        padding: 10px;
+    }
+    
+    .message {
+        max-width: 85%;
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+    
+    .game-content {
+        padding: 15px;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 7/8;
+    }
+    
+    .game-controls {
+        flex-wrap: wrap;
+    }
+    
+    .game-btn {
+        flex: 1;
+        min-width: 120px;
+        margin: 5px;
+    }
+    
+    .chatbot-container, .game-container {
+        bottom: 15px;
+    }
+    
+    .chatbot-container {
+        right: 15px;
+    }
+    
+    .game-container {
+        left: 15px;
+    }
+    
+    .chatbot-toggle, .game-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-stats {
+        text-align: center;
+    }
+}
 
-        @media (max-width: 576px) {
-            .container {
-                padding: 10px;
-            }
-            
-            header {
-                padding: 30px 15px;
-            }
-            
-            .profile-img {
-                width: 130px;
-                height: 130px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .title {
-                font-size: 1rem;
-            }
-            
-            section {
-                padding: 20px 15px;
-            }
-            
-            .game-window, .chatbot-window {
-                width: 280px;
-                height: 380px;
-            }
-            
-            #gameCanvas {
-                width: 260px;
-                height: 350px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .social-links {
-                gap: 10px;
-            }
-            
-            .social-links a {
-                font-size: 1.3rem;
-            }
-            
-            .footer-links {
-                justify-content: center;
-            }
-            
-            .progress-bar {
-                width: 150px;
-            }
-            
-            .skip-btn {
-                bottom: 10px;
-                right: 10px;
-                padding: 6px 12px;
-                font-size: 0.9rem;
-            }
-        }
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 30px 15px;
+    }
+    
+    .profile-img {
+        width: 130px;
+        height: 130px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .title {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+    
+    /* Chatbot mobile */
+    .chatbot-window {
+        width: 95vw;
+        height: 65vh;
+        right: 2.5vw;
+        left: 2.5vw;
+    }
+    
+    /* Game mobile */
+    .game-window {
+        width: 95vw;
+        height: 75vh;
+        left: 2.5vw;
+        right: 2.5vw;
+    }
+    
+    .chatbot-header, .game-header {
+        padding: 12px;
+    }
+    
+    .chatbot-header h3, .game-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .chatbot-input {
+        padding: 8px;
+    }
+    
+    .chatbot-input input {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .message {
+        max-width: 90%;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    #gameCanvas {
+        max-width: 260px;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .game-btn {
+        width: 100%;
+        margin: 2px 0;
+    }
+    
+    .chatbot-container, .game-container {
+        bottom: 10px;
+    }
+    
+    .chatbot-container {
+        right: 10px;
+    }
+    
+    .game-container {
+        left: 10px;
+    }
+    
+    .chatbot-toggle, .game-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-links a {
+        font-size: 1.3rem;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+    
+    .progress-bar {
+        width: 150px;
+    }
+    
+    .skip-btn {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
 
-        @media (max-width: 400px) {
-            .slide h1 {
-                font-size: 1.8rem;
-            }
-            
-            .slide p {
-                font-size: 1rem;
-            }
-            
-            .slide-icon {
-                font-size: 3rem;
-            }
-            
-            .game-window, .chatbot-window {
-                width: 260px;
-                height: 360px;
-            }
-            
-            #gameCanvas {
-                width: 240px;
-                height: 320px;
-            }
-            
-            .game-controls {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .game-btn {
-                width: 100%;
-            }
-            
-            .chatbot-input {
-                flex-wrap: wrap;
-            }
-            
-            .chatbot-input input {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-        }
+@media (max-width: 400px) {
+    .slide h1 {
+        font-size: 1.8rem;
+    }
+    
+    .slide p {
+        font-size: 1rem;
+    }
+    
+    .slide-icon {
+        font-size: 3rem;
+    }
+    
+    .chatbot-window {
+        height: 70vh;
+    }
+    
+    .game-window {
+        height: 80vh;
+    }
+    
+    .chatbot-messages {
+        padding: 8px;
+    }
+    
+    .message {
+        max-width: 95%;
+    }
+    
+    #gameCanvas {
+        max-width: 220px;
+    }
+    
+    .chatbot-input {
+        flex-wrap: wrap;
+    }
+    
+    .chatbot-input input {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    .chatbot-input button {
+        margin-left: 0;
+        width: 100%;
+        border-radius: 20px;
+    }
+}
 
-        /* Améliorations pour l'orientation paysage sur mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .slideshow-container {
-                position: absolute;
-                height: 100%;
-            }
-            
-            .slide {
-                padding: 10px;
-            }
-            
-            .slide h1 {
-                font-size: 2rem;
-                margin-bottom: 10px;
-            }
-            
-            .slide p {
-                font-size: 1rem;
-                margin-bottom: 10px;
-            }
-            
-            .slide-icon {
-                font-size: 2.5rem;
-                margin-bottom: 10px;
-            }
-            
-            .progress-bar {
-                bottom: 15px;
-            }
-            
-            .skip-btn {
-                bottom: 10px;
-                right: 10px;
-            }
-        }
+/* Pour les très petits écrans en orientation paysage */
+@media (max-height: 500px) and (orientation: landscape) {
+    .slideshow-container {
+        position: absolute;
+        height: 100%;
+    }
+    
+    .slide {
+        padding: 10px;
+    }
+    
+    .slide h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .slide p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .slide-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .progress-bar {
+        bottom: 15px;
+    }
+    
+    .skip-btn {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .chatbot-window {
+        height: 80vh;
+        width: 80vw;
+        right: 10vw;
+        left: 10vw;
+    }
+    
+    .game-window {
+        height: 85vh;
+        width: 85vw;
+        left: 7.5vw;
+        right: 7.5vw;
+    }
+    
+    .chatbot-messages {
+        max-height: 60vh;
+    }
+    
+    .game-content {
+        padding: 10px;
+    }
+    
+    #gameCanvas {
+        max-width: 200px;
+    }
+}
 
-        /* Support pour les écrans très larges */
-        @media (min-width: 1600px) {
-            .container {
-                max-width: 1400px;
-            }
-        }
+/* Support pour les écrans très larges */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+}
     </style>
 </head>
 <body>
@@ -1565,6 +1692,7 @@ document.querySelector('.game-window')?.addEventListener('click', function(event
     
 </body>
 </html>
+
 
 
 
