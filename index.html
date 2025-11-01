@@ -1104,7 +1104,7 @@
         </div>
         <div class="chatbot-window">
             <div class="chatbot-header">
-                <h3>Assistant CV</h3>
+                <h3>Assistant Alva</h3>
                 <button class="chatbot-close"><i class="fas fa-times"></i></button>
             </div>
             <div class="chatbot-messages">
@@ -1207,6 +1207,23 @@
     </footer>
 
     <script>
+               // Gestion du téléchargement du portfolio
+document.getElementById('downloadportfolio').addEventListener('click', function() {
+    // Créer un lien de téléchargement
+    const link = document.createElement('a');
+    link.href = 'Télécharger en PDF'; // Chemin vers votre fichier PDF
+    link.download = 'Daniel_Oyougou.pdf'; // Nom du fichier téléchargé
+    link.target = '_blank';
+    
+    // Simuler le clic
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Optionnel : Suivi analytics
+    console.log('portfolio téléchargé avec succès');
+});
+            
         // Le code JavaScript reste inchangé
         // Gestion du diaporama d'introduction
         document.addEventListener('DOMContentLoaded', function() {
@@ -1524,28 +1541,15 @@
                 drawRoad();
                 drawCar();
             });
-            
+        
             // Initialiser l'affichage du jeu
             drawRoad();
             drawCar();
         });
-        // Gestion du téléchargement du portfolio
-document.getElementById('downloadportfolio').addEventListener('click', function() {
-    // Créer un lien de téléchargement
-    const link = document.createElement('a');
-    link.href = 'portfolio_daniel-oyougou.pdf'; // Chemin vers votre fichier PDF
-    link.download = 'Daniel_Oyougou.pdf'; // Nom du fichier téléchargé
-    link.target = '_blank';
-    
-    // Simuler le clic
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Optionnel : Suivi analytics
-    console.log('portfolio téléchargé avec succès');
-});
+     
     </script>
+    
 </body>
 </html>
+
 
