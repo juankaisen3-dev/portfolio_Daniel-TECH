@@ -1967,7 +1967,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Fonction pour créer les boutons s'ils n'existent pas
+// Fonction pour créer les boutons 
 function createGameButtons() {
     const gameControls = document.querySelector('.game-controls');
     
@@ -1976,6 +1976,63 @@ function createGameButtons() {
             <button class="game-btn" id="startGame">Commencer</button>
             <button class="game-btn" id="resetGame">Réinitialiser</button>
         `;
+
+        //  JavaScript existant
+function setupMobileControls() {
+    const canvas = document.getElementById('gameCanvas');
+    let isTouching = false;
+    let touchId = null;
+
+    canvas.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        if (e.touches.length === 1) {
+            isTouching = true;
+            touchId = e.touches[0].identifier;
+            handleTouchMove(e.touches[0]);
+        }
+    });
+
+    canvas.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        if (!isTouching || !gameRunning) return;
+        
+        for (let touch of e.touches) {
+            if (touch.identifier === touchId) {
+                handleTouchMove(touch);
+                break;
+            }
+        }
+    });
+
+    canvas.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        isTouching = false;
+        touchId = null;
+        carSpeed = 0;
+    });
+
+    function handleTouchMove(touch) {
+        const rect = canvas.getBoundingClientRect();
+        const touchX = touch.clientX - rect.left;
+        const canvasCenter = canvas.width / 2;
+        
+        if (touchX < canvasCenter - 20) {
+            carSpeed = -5; // Gauche
+        } else if (touchX > canvasCenter + 20) {
+            carSpeed = 5; // Droite
+        } else {
+            carSpeed = 0; // Centre
+        }
+    }
+
+    // Empêcher le zoom et le défilement
+    canvas.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+}
+
+// Appelez cette fonction après l'initialisation du jeu
+setupMobileControls();
         
         // Réattacher les événements
         attachGameEvents();
@@ -2005,6 +2062,7 @@ function attachGameEvents() {
     
 </body>
 </html>
+
 
 
 
