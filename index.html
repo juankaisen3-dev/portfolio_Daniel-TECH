@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DEV daniel tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables et styles de base */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Styles pour le diaporama d'introduction */
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 1000;
+            background-color: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide p {
+            font-size: 1.5rem;
+            max-width: 800px;
+        }
+
+        .slide-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background-color: var(--primary-color);
+            transition: width 0.1s linear;
+        }
+
+        .skip-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .skip-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Styles pour le contenu principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-color);
+        }
+
+        /* Sections du CV */
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .timeline-content .date {
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Styles pour le chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background-color: #f0f0f0;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chatbot-input button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Styles pour le mini-jeu */
+        .game-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .game-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .game-toggle:hover {
+            transform: scale(1.1);
+            background-color: #c0392b;
+        }
+
+        .game-window {
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            width: 400px;
+            height: 500px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .game-header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .game-header h3 {
+            margin: 0;
+        }
+
+        .game-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .game-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #2c3e50;
+        }
+
+        #gameCanvas {
+            background-color: #1a2530;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .game-btn {
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .game-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .slide h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide p {
+                font-size: 1.2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left, .right {
+                left: 0;
+            }
+            
+            .game-window {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .chatbot-window {
+                width: 300px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 40px 15px;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            .game-window, .chatbot-window {
+                width: 280px;
+                height: 380px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Diaporama d'introduction -->
+    <div class="slideshow-container">
+        <div class="slide active">
+            <i class="fas fa-user-tie slide-icon"></i>
+            <h1>Bienvenue sur mon portfolio</h1>
+            <p>Découvrez mon parcours professionnel et mes compétences</p>
+        </div>
+        <div class="slide">
+            <i class="fas fa-graduation-cap slide-icon"></i>
+            <h1>Formation et Expériences</h1>
+            <p>Un aperçu de mon parcours académique et professionnel</p>
+        </div>
+        <div class="slide">
+            <i class="fas fa-code slide-icon"></i>
+            <h1>Compétences Techniques</h1>
+            <p>Mes domaines d'expertise et technologies maîtrisées</p>
+        </div>
+        <div class="slide">
+            <i class="fas fa-gamepad slide-icon"></i>
+            <h1>Interactif et Dynamique</h1>
+            <p>Explorez mon journal avec des éléments interactifs</p>
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <button class="skip-btn">Passer l'intro</button>
+    </div>
+
+    <!-- Contenu principal du CV -->
+    <div class="container">
+        <header>
+            <img src="Snapchat-758596195.jpg" alt="Photo de profil" class="profile-img">
+            <h1>Daniel_Oyougou</h1>
+            <p class="title">Développeur Full Stack & Concepteur d'Applications Web</p>
+            <p>Passionné par la création d'expériences utilisateur innovantes et performantes</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>À Propos de Moi</h2>
+            <p>Développeur full stack avec 5 ans d'expérience avenir😅 dans la conception et le développement d'applications web  et des games modernes. Passionné par les nouvelles technologies et toujours à la recherche de défis techniques stimulants.</p>
+            <p>Je maîtrise l'ensemble du cycle de développement,[sia] de la conception à la mise en production, en passant par les tests et l'optimisation des performances.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>HTML/CSS</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>JavaScript</span>
+                        <span>30%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>React</span>
+                        <span>5%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Node.js</span>
+                        <span>50%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 50%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>5%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>UI/UX Design</span>
+                        <span>30%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Expérience Professionnelle</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Développeur Full Stack junior</h3>
+                        <p class="date">2025 - Présent</p>
+                        <p>YouTube.</p>
+                        <p>Création de contenu éducatif sur le développement web et les technologies émergentes.</p>
+                        <p> En partenariat avec Juxt_RTS😏</p>
+                        <p>Conception et développement d'applications web complexes avec React et Node.js. Gestion d'une équipe de 3 développeurs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Développeur Frontend</h3>
+                        <p class="date">2019 - 2021</p>
+                        <p>WebInnovation</p>
+                        <p>Création d'interfaces utilisateur responsives et optimisation des performances des applications web.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Développeur Web Junior</h3>
+                        <p class="date">2018 - 2019</p>
+                        <p>StartUp Digital</p>
+                        <p>Développement de sites web et d'applications en utilisant HTML, CSS, JavaScript et PHP.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Formation</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Master en Informatique (Télégram)</h3>
+                        <p class="date">2016 - 2018</p>
+                        <p>Université de Technologie</p>
+                        <p>Spécialisation en développement web et technologies émergentes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Licence en Informatique (Télégram)</h3>
+                        <p class="date">2013 - 2016</p>
+                        <p>Université des Sciences</p>
+                        <p>Fondements de l'informatique, algorithmique et programmation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Assistant CV</h3>
+                <button class="chatbot-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="message bot-message">
+                    Bonjour ! Je suis Alva, votre assistante virtuelle. Comment puis-je vous aider à explorer ce CV ?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Tapez votre message...">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mini-jeu de voiture -->
+    <div class="game-container">
+        <div class="game-toggle">
+            <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="game-window">
+            <div class="game-header">
+                <h3>Course de Voiture</h3>
+                <button class="game-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="game-content">
+                <canvas id="gameCanvas" width="350" height="400"></canvas>
+                <div class="game-controls">
+                    <button class="game-btn" id="startGame">Commencer</button>
+                    <button class="game-btn" id="resetGame">Réinitialiser</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gestion du diaporama d'introduction
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const progressBar = document.querySelector('.progress');
+            const skipBtn = document.querySelector('.skip-btn');
+            const container = document.querySelector('.container');
+            let currentSlide = 0;
+            let progress = 0;
+            let progressInterval;
+            
+            // Fonction pour passer à la diapositive suivante
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+                progress = 0;
+            }
+            
+            // Démarrer l'animation de progression
+            function startProgress() {
+                progressInterval = setInterval(function() {
+                    progress += 0.5;
+                    progressBar.style.width = progress + '%';
+                    
+                    if (progress >= 100) {
+                        nextSlide();
+                    }
+                }, 50);
+            }
+            
+            // Démarrer le diaporama
+            startProgress();
+            
+            // Gestion du bouton "Passer"
+            skipBtn.addEventListener('click', function() {
+                clearInterval(progressInterval);
+                document.querySelector('.slideshow-container').style.display = 'none';
+                container.classList.add('show');
+            });
+            
+            // Gestion du chatbot
+            const chatbotToggle = document.querySelector('.chatbot-toggle');
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const chatbotClose = document.querySelector('.chatbot-close');
+            const chatbotInput = document.querySelector('.chatbot-input input');
+            const chatbotSend = document.querySelector('.chatbot-input button');
+            const chatbotMessages = document.querySelector('.chatbot-messages');
+            
+            chatbotToggle.addEventListener('click', function() {
+                chatbotWindow.style.display = 'flex';
+            });
+            
+            chatbotClose.addEventListener('click', function() {
+                chatbotWindow.style.display = 'none';
+            });
+            
+            // Réponses du chatbot
+            const botResponses = {
+                "bonjour": "Bonjour ! Comment puis-je vous aider aujourd'hui 😊?",
+                "yo": " Yo ! Qu'est-ce que je peux faire pour toi ?🙃",
+                "qui ta crée": "J'ai été crée par Daniel_Oyougou pour vous aider à naviguer dans son CV.",
+                "salut": "Salut man ! Que souhaites-tu savoir sur mon profil ?",
+                "compétences": " Bah!🥱 Je maîtrise HTML, CSS, JavaScript, React, Node.js, Python et bien plus. Consultez la section 'Compétences' pour plus de détails.",
+                "expérience": "J'ai 5 ans😎 d'expérience en développement web. Vous trouverez mes expériences professionnelles dans la section dédiée.",
+                "formation": "J'ai un Master en Informatique de l'Université de Technologie. Consultez la section 'Formation' pour plus d'informations.",
+                "projets": "J'ai travaillé sur de nombreux projets web, allant des sites vitrines aux applications complexes. N'hésitez pas à me contacter pour en discuter !",
+                "contact": "Vous pouvez me contacter par email à Juankaisen3@example.com ou via mes réseaux sociaux en haut de la page.",
+                "default": "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler votre question ? Vous pouvez me demander des informations sur mes compétences, mon expérience, ma formation ou mes projets."
+            };
+            
+            function addMessage(text, isUser) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+            
+            function processMessage(message) {
+                const lowerMessage = message.toLowerCase();
+                let response = botResponses.default;
+                
+                for (const key in botResponses) {
+                    if (lowerMessage.includes(key)) {
+                        response = botResponses[key];
+                        break;
+                    }
+                }
+                
+                addMessage(response, false);
+            }
+            
+            chatbotSend.addEventListener('click', function() {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    chatbotInput.value = '';
+                    
+                    // Simuler un délai de réponse
+                    setTimeout(function() {
+                        processMessage(message);
+                    }, 1000);
+                }
+            });
+            
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    chatbotSend.click();
+                }
+            });
+            
+            // Gestion du mini-jeu
+            const gameToggle = document.querySelector('.game-toggle');
+            const gameWindow = document.querySelector('.game-window');
+            const gameClose = document.querySelector('.game-close');
+            const startGameBtn = document.getElementById('startGame');
+            const resetGameBtn = document.getElementById('resetGame');
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            gameToggle.addEventListener('click', function() {
+                gameWindow.style.display = 'flex';
+            });
+            
+            gameClose.addEventListener('click', function() {
+                gameWindow.style.display = 'none';
+            });
+            
+            // Variables du jeu
+            let carX = canvas.width / 2 - 15;
+            let carY = canvas.height - 80;
+            let carWidth = 30;
+            let carHeight = 50;
+            let carSpeed = 0;
+            let roadWidth = 200;
+            let roadX = (canvas.width - roadWidth) / 2;
+            let roadMarkings = [];
+            let obstacles = [];
+            let gameRunning = false;
+            let score = 0;
+            
+            // Initialiser les marquages routiers
+            for (let i = 0; i < 5; i++) {
+                roadMarkings.push({
+                    x: roadX + roadWidth / 2 - 2,
+                    y: i * 100,
+                    width: 4,
+                    height: 20
+                });
+            }
+            
+            // Fonction pour dessiner la voiture
+            function drawCar() {
+                ctx.fillStyle = '#e74c3c';
+                ctx.fillRect(carX, carY, carWidth, carHeight);
+                
+                // Vitres
+                ctx.fillStyle = '#3498db';
+                ctx.fillRect(carX + 5, carY + 5, carWidth - 10, 10);
+                ctx.fillRect(carX + 5, carY + 20, carWidth - 10, 15);
+                
+                // Roues
+                ctx.fillStyle = '#2c3e50';
+                ctx.fillRect(carX - 3, carY + 5, 3, 10);
+                ctx.fillRect(carX - 3, carY + 35, 3, 10);
+                ctx.fillRect(carX + carWidth, carY + 5, 3, 10);
+                ctx.fillRect(carX + carWidth, carY + 35, 3, 10);
+            }
+            
+            // Fonction pour dessiner la route
+            function drawRoad() {
+                // Route
+                ctx.fillStyle = '#34495e';
+                ctx.fillRect(roadX, 0, roadWidth, canvas.height);
+                
+                // Bordures
+                ctx.fillStyle = '#95a5a6';
+                ctx.fillRect(roadX - 5, 0, 5, canvas.height);
+                ctx.fillRect(roadX + roadWidth, 0, 5, canvas.height);
+                
+                // Marquages routiers
+                ctx.fillStyle = '#ffffff';
+                for (let i = 0; i < roadMarkings.length; i++) {
+                    const marking = roadMarkings[i];
+                    ctx.fillRect(marking.x, marking.y, marking.width, marking.height);
+                }
+            }
+            
+            // Fonction pour dessiner les obstacles
+            function drawObstacles() {
+                ctx.fillStyle = '#f39c12';
+                for (let i = 0; i < obstacles.length; i++) {
+                    const obstacle = obstacles[i];
+                    ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                }
+            }
+            
+            // Fonction pour mettre à jour le jeu
+            function updateGame() {
+                if (!gameRunning) return;
+                
+                // Effacer le canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Dessiner la route
+                drawRoad();
+                
+                // Mettre à jour et dessiner les marquages routiers
+                for (let i = 0; i < roadMarkings.length; i++) {
+                    roadMarkings[i].y += 3;
+                    if (roadMarkings[i].y > canvas.height) {
+                        roadMarkings[i].y = -20;
+                    }
+                }
+                
+                // Mettre à jour et dessiner les obstacles
+                for (let i = 0; i < obstacles.length; i++) {
+                    obstacles[i].y += 5;
+                    if (obstacles[i].y > canvas.height) {
+                        obstacles[i].y = -30;
+                        obstacles[i].x = roadX + Math.random() * (roadWidth - 30);
+                        score += 1;
+                    }
+                    
+                    // Détection de collision
+                    if (
+                        carX < obstacles[i].x + obstacles[i].width &&
+                        carX + carWidth > obstacles[i].x &&
+                        carY < obstacles[i].y + obstacles[i].height &&
+                        carY + carHeight > obstacles[i].y
+                    ) {
+                        gameRunning = false;
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        ctx.fillStyle = '#e74c3c';
+                        ctx.font = '24px Arial';
+                        ctx.fillText('Game Over!', canvas.width / 2 - 70, canvas.height / 2 - 20);
+                        ctx.font = '18px Arial';
+                        ctx.fillText(`Score: ${score}`, canvas.width / 2 - 40, canvas.height / 2 + 10);
+                        return;
+                    }
+                }
+                
+                // Mettre à jour la position de la voiture
+                carX += carSpeed;
+                
+                // Limites de la route
+                if (carX < roadX) carX = roadX;
+                if (carX + carWidth > roadX + roadWidth) carX = roadX + roadWidth - carWidth;
+                
+                // Dessiner la voiture
+                drawCar();
+                
+                // Dessiner les obstacles
+                drawObstacles();
+                
+                // Afficher le score
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '16px Arial';
+                ctx.fillText(`Score: ${score}`, 10, 20);
+                
+                // Continuer l'animation
+                requestAnimationFrame(updateGame);
+            }
+            
+            // Gestion des touches du clavier
+            document.addEventListener('keydown', function(e) {
+                if (!gameRunning) return;
+                
+                if (e.key === 'ArrowLeft' || e.key === 'q') {
+                    carSpeed = -5;
+                } else if (e.key === 'ArrowRight' || e.key === 'd') {
+                    carSpeed = 5;
+                }
+            });
+            
+            document.addEventListener('keyup', function(e) {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'q' || e.key === 'd') {
+                    carSpeed = 0;
+                }
+            });
+            
+            // Boutons de contrôle du jeu
+            startGameBtn.addEventListener('click', function() {
+                if (!gameRunning) {
+                    gameRunning = true;
+                    score = 0;
+                    obstacles = [];
+                    
+                    // Créer quelques obstacles
+                    for (let i = 0; i < 3; i++) {
+                        obstacles.push({
+                            x: roadX + Math.random() * (roadWidth - 30),
+                            y: -30 - i * 150,
+                            width: 30,
+                            height: 30
+                        });
+                    }
+                    
+                    updateGame();
+                }
+            });
+            
+            resetGameBtn.addEventListener('click', function() {
+                gameRunning = false;
+                carX = canvas.width / 2 - 15;
+                carY = canvas.height - 80;
+                carSpeed = 0;
+                obstacles = [];
+                score = 0;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawRoad();
+                drawCar();
+            });
+            
+            // Initialiser l'affichage du jeu
+            drawRoad();
+            drawCar();
+        });
+    </script>
+    <footer class="cv-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Disponibilité</h3>
+            <p>Recherche active de nouvelles opportunités</p>
+            <p>Disponible immédiatement</p>
+            <div class="availability-status">
+                <span class="status-dot"></span>
+                <span>Disponible</span>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Juan@example.com</p>
+                <p><i class="fas fa-phone"></i> +241 074085772</p>
+                <p><i class="fas fa-map-marker-alt"></i> Gabon, Libreville</p>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Réseaux</h3>
+            <div class="social-footer">
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-codepen"></i> CodePen</a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Téléchargement</h3>
+            <button class="download-btn">
+                <i class="fas fa-download"></i>
+                Télécharger le CV PDF
+            </button>
+            <p class="file-size">PDF - 245 Ko</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="footer-legal">
+            <p>&copy; 2025 Daniel_Oyougou Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Plan du site</a>
+            </div>
+        </div>
+        <div class="footer-stats">
+            <p>Dernière mise à jour: 01/11/2025</p>
+            <p>Visiteurs: <span id="visitorCount">1,247</span></p>
+        </div>
+    </div>
+</footer>
+   <script src="script.js"></script>
+</body>
+</html>
