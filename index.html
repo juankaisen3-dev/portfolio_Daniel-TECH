@@ -1523,62 +1523,66 @@
                     <span>Disponible</span>
                 </div>
             </div>
-            
-            <div class="footer-section">
-    <h3>Contact</h3>
-    <div class="contact-info">
-        <p>
-            <i class="fas fa-envelope"></i> 
-            <a href="mailto:Juankaisen3@example.com" style="color: white; text-decoration: none;">
-                Juankaisen3@example.com
-            </a>
-        </p>
-        <p>
-            <i class="fas fa-phone"></i> 
-            <a href="tel:+241074085772" style="color: white; text-decoration: none;">
-                +241 074085772
-            </a>
-        </p>
-        <p><i class="fas fa-map-marker-alt"></i> Gabon, Libreville</p>
-    </div>
-</div>
-            
-            <div class="footer-section">
-                <h3>Réseaux</h3>
-                <div class="social-footer">
-                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#"><i class="fab fa-codepen"></i> CodePen</a>
-                </div>
+            <footer class="cv-footer bg-gray-800 text-white py-6 md:py-8 px-4 md:px-6">
+    <div class="footer-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Disponibilité</h3>
+            <p class="text-sm md:text-base mb-2">Recherche active de nouvelles opportunités</p>
+            <p class="text-sm md:text-base mb-3">Disponible immédiatement</p>
+            <div class="availability-status flex items-center gap-2">
+                <span class="status-dot w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-sm md:text-base">Disponible</span>
             </div>
-            
-           <div class="footer-section">
-    <h3>Téléchargement</h3>
-    <button class="download-btn" id="downloadCv">
-        <i class="fas fa-download"></i>
-        Télécharger en PDF
-    </button>
-    <p class="file-size">PDF - 245 Ko</p>
-</div>
         </div>
         
-        <div class="footer-bottom">
-            <div class="footer-legal">
-                <p>&copy; 2025 Daniel_Oyougou Tous droits réservés.</p>
-                <div class="footer-links">
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Plan du site</a>
-                </div>
-            </div>
-            <div class="footer-stats">
-                <p>Dernière mise à jour: 01/11/2025</p>
-                <p>Visiteurs: <span id="visitorCount">1,247</span></p>
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Contact</h3>
+            <div class="contact-info space-y-2">
+                <p class="flex items-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-envelope text-blue-400"></i>
+                    <a href="mailto:Juan@example.com" class="hover:text-blue-300 transition-colors">Juan@example.com</a>
+                </p>
+                <p class="flex items-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-phone text-blue-400"></i>
+                    <a href="tel:+241074085772" class="hover:text-blue-300 transition-colors">+241 074085772</a>
+                </p>
+                <p class="flex items-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-map-marker-alt text-blue-400"></i>
+                    Gabon, Libreville
+                </p>
             </div>
         </div>
-    </footer>
-
+        
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Réseaux</h3>
+            <div class="social-footer space-y-2">
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-codepen"></i> CodePen
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Téléchargement</h3>
+            <a href="cv-daniel-oyougou.pdf" download 
+               class="download-btn bg-blue-600 hover:bg-blue-700 text-white py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors duration-300 w-full text-center block text-sm md:text-base">
+                <i class="fas fa-download mr-2"></i>
+                Télécharger le CV PDF
+            </a>
+            <p class="file-size text-xs md:text-sm opacity-75 mt-2 text-center">PDF - 245 Ko</p>
+        </div>
+    </div>
+</footer>
+         
     <script>
             
         // Le code JavaScript reste inchangé
@@ -2001,6 +2005,7 @@ function attachGameEvents() {
     
 </body>
 </html>
+
 
 
 
