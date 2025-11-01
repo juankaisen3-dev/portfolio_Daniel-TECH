@@ -1180,14 +1180,14 @@
                 </div>
             </div>
             
-            <div class="footer-section">
-                <h3>Téléchargement</h3>
-                <button class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Télécharger le CV PDF
-                </button>
-                <p class="file-size">PDF - 245 Ko</p>
-            </div>
+           <div class="footer-section">
+    <h3>Téléchargement</h3>
+    <button class="download-btn" id="downloadCv">
+        <i class="fas fa-download"></i>
+        Télécharger en PDF
+    </button>
+    <p class="file-size">PDF - 245 Ko</p>
+</div>
         </div>
         
         <div class="footer-bottom">
@@ -1268,7 +1268,7 @@
             const botResponses = {
                 "bonjour": "Bonjour ! Comment puis-je vous aider aujourd'hui 😊?",
                 "yo": " Yo ! Qu'est-ce que je peux faire pour toi ?🙃",
-                "qui ta crée": "J'ai été crée par Daniel_Oyougou pour vous aider à naviguer dans son CV.",
+                "qui ta crée": "J'ai été crée par Daniel_Oyougou pour vous aider à naviguer dans son portfolio.",
                 "salut": "Salut man ! Que souhaites-tu savoir sur mon profil ?",
                 "compétences": " Bah!🥱 Je maîtrise HTML, CSS, JavaScript, React, Node.js, Python et bien plus. Consultez la section 'Compétences' pour plus de détails.",
                 "expérience": "J'ai 5 ans😎 d'expérience en développement web. Vous trouverez mes expériences professionnelles dans la section dédiée.",
@@ -1529,6 +1529,23 @@
             drawRoad();
             drawCar();
         });
+        // Gestion du téléchargement du portfolio
+document.getElementById('downloadportfolio').addEventListener('click', function() {
+    // Créer un lien de téléchargement
+    const link = document.createElement('a');
+    link.href = 'portfolio_daniel-oyougou.pdf'; // Chemin vers votre fichier PDF
+    link.download = 'Daniel_Oyougou.pdf'; // Nom du fichier téléchargé
+    link.target = '_blank';
+    
+    // Simuler le clic
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Optionnel : Suivi analytics
+    console.log('portfolio téléchargé avec succès');
+});
     </script>
 </body>
 </html>
+
