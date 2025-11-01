@@ -1320,6 +1320,36 @@
                     chatbotSend.click();
                 }
             });
+            // Fermeture en cliquant en dehors
+document.addEventListener('click', function(event) {
+    const chatbotWindow = document.querySelector('.chatbot-window');
+    const chatbotToggle = document.querySelector('.chatbot-toggle');
+    const gameWindow = document.querySelector('.game-window');
+    const gameToggle = document.querySelector('.game-toggle');
+    
+    // Fermer le chatbot si on clique en dehors
+    if (chatbotWindow && chatbotWindow.style.display === 'flex') {
+        if (!chatbotWindow.contains(event.target) && !chatbotToggle.contains(event.target)) {
+            chatbotWindow.style.display = 'none';
+        }
+    }
+    
+    // Fermer le jeu si on clique en dehors
+    if (gameWindow && gameWindow.style.display === 'flex') {
+        if (!gameWindow.contains(event.target) && !gameToggle.contains(event.target)) {
+            gameWindow.style.display = 'none';
+        }
+    }
+});
+
+// Empêcher la fermeture quand on clique à l'intérieur
+document.querySelector('.chatbot-window')?.addEventListener('click', function(event) {
+    event.stopPropagation();
+});
+
+document.querySelector('.game-window')?.addEventListener('click', function(event) {
+    event.stopPropagation();
+});
             
             // Gestion du mini-jeu
             const gameToggle = document.querySelector('.game-toggle');
@@ -1535,6 +1565,7 @@
     
 </body>
 </html>
+
 
 
 
