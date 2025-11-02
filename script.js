@@ -1,4 +1,4 @@
-// Ajouter ce code dans la section <script> existante
+
 
 // Animation du compteur de visiteurs
 function animateVisitorCount() {
@@ -62,4 +62,5 @@ document.addEventListener('DOMContentLoaded', function() {
     const now = new Date();
     const formattedDate = now.toLocaleDateString('fr-FR');
     lastUpdateElement.textContent = `Dernière mise à jour: ${formattedDate}`;
+
 });
