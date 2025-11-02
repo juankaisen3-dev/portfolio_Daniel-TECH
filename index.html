@@ -1615,48 +1615,45 @@
 </footer>
          
     <script>
+                 // INTRO ULTRA RAPIDE
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    const progressBar = document.querySelector('.progress');
+    const skipBtn = document.querySelector('.skip-btn');
+    const container = document.querySelector('.container');
+    let currentSlide = 0;
+    let progress = 0;
+    let progressInterval;
+    
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+        progress = 0;
+    }
+    
+    // VERSION ULTRA RAPIDE
+    function startProgress() {
+        progressInterval = setInterval(function() {
+            progress += 3; // Très rapide
+            progressBar.style.width = progress + '%';
             
-        // Le code JavaScript reste inchangé
-        // Gestion du diaporama d'introduction
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            const progressBar = document.querySelector('.progress');
-            const skipBtn = document.querySelector('.skip-btn');
-            const container = document.querySelector('.container');
-            let currentSlide = 0;
-            let progress = 0;
-            let progressInterval;
-            
-            // Fonction pour passer à la diapositive suivante
-            function nextSlide() {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-                progress = 0;
+            if (progress >= 100) {
+                nextSlide();
             }
+        }, 20); // Super rapide
+    }
+    
+    startProgress();
+    
+    skipBtn.addEventListener('click', function() {
+        clearInterval(progressInterval);
+        document.querySelector('.slideshow-container').style.display = 'none';
+        container.classList.add('show');
+    });
+});
             
-            // Démarrer l'animation de progression
-            function startProgress() {
-                progressInterval = setInterval(function() {
-                    progress += 0.5;
-                    progressBar.style.width = progress + '%';
-                    
-                    if (progress >= 100) {
-                        nextSlide();
-                    }
-                }, 50);
-            }
-            
-            // Démarrer le diaporama
-            startProgress();
-            
-            // Gestion du bouton "Passer"
-            skipBtn.addEventListener('click', function() {
-                clearInterval(progressInterval);
-                document.querySelector('.slideshow-container').style.display = 'none';
-                container.classList.add('show');
-            });
-            
+      
             // Gestion du chatbot
             const chatbotToggle = document.querySelector('.chatbot-toggle');
             const chatbotWindow = document.querySelector('.chatbot-window');
@@ -1672,62 +1669,216 @@
             chatbotClose.addEventListener('click', function() {
                 chatbotWindow.style.display = 'none';
             });
-            
-            // Réponses du chatbot
-            const botResponses = {
-                "bonjour": "Bonjour ! Comment puis-je vous aider aujourd'hui 😊?",
-                "yo": " Yo ! Qu'est-ce que je peux faire pour toi ?🙃",
-                "qui ta crée": "J'ai été crée par Daniel_Oyougou pour vous aider à naviguer dans son portfolio.",
-                "salut": "Salut man ! Que souhaites-tu savoir sur mon profil ?",
-                "compétences": " Bah!🥱 Je maîtrise HTML, CSS, JavaScript, React, Node.js, Python et bien plus. Consultez la section 'Compétences' pour plus de détails.",
-                "expérience": "J'ai 5 ans😎 d'expérience en développement web. Vous trouverez mes expériences professionnelles dans la section dédiée.",
-                "formation": "J'ai un Master en Informatique de l'Université de Technologie. Consultez la section 'Formation' pour plus d'informations.",
-                "projets": "J'ai travaillé sur de nombreux projets web, allant des sites vitrines aux applications complexes. N'hésitez pas à me contacter pour en discuter !",
-                "contact": "Vous pouvez me contacter par email à Juankaisen3@example.com ou via mes réseaux sociaux en haut de la page.",
-                "default": "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler votre question ? Vous pouvez me demander des informations sur mes compétences, mon expérience, ma formation ou mes projets."
-            };
-            
-            function addMessage(text, isUser) {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message');
-                messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-                messageDiv.textContent = text;
-                chatbotMessages.appendChild(messageDiv);
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                 // Réponses avancées du chatbot avec IA étendue
+const botResponses = {
+    // Salutations
+    "bonjour": "Bonjour ! Je suis Alva, votre assistante IA avancée. Comment puis-je vous aider aujourd'hui ? 😊",
+    "yo": "Yo ! C'est Alva à l'appareil 😎 Qu'est-ce qui vous passionne aujourd'hui ?",
+    "salut": "Salut ! Prêt à explorer des possibilités infinies ? Dites-moi tout !",
+    "coucou": "Coucou ! 👋 Je suis là pour vous accompagner dans toutes vos questions.",
+    "hello": "Hello ! Bienvenue dans l'univers digital de Daniel. Que souhaitez-vous découvrir ?",
+
+    // Présentation
+    "qui es tu": "Je suis Alva, une IA conversationnelle créée par Daniel Oyougou. Je peux discuter de développement web, technologies, projets, et bien plus encore !",
+    "qui ta crée": "J'ai été conçue par Daniel Oyougou, un développeur full stack passionné par l'innovation et les technologies émergentes.",
+    "présente toi": "Je m'appelle Alva ! 🤖 Votre assistante IA polyvalente. Je peux vous aider avec le portfolio de Daniel, discuter technologie, développement, ou même philosopher sur l'avenir du digital !",
+    "ton nom": "Je m'appelle Alva, comme en hommage à Ada Lovelace, pionnière de l'informatique !",
+
+    // Compétences techniques approfondies
+    "compétences": "Voici l'expertise de Daniel :\n\n🚀 **Frontend** : HTML5, CSS3, JavaScript (ES6+), React, Vue.js, TypeScript\n🔥 **Backend** : Node.js, Python, PHP, Express, API REST, GraphQL\n🎨 **Design** : UI/UX, Figma, Adobe Suite, Design Systems\n📱 **Mobile** : React Native, PWA, Applications hybrides\n🛠 **Outils** : Git, Docker, Webpack, AWS, MongoDB\n\nQuel domaine vous intéresse particulièrement ?",
+    "technologies": "Daniel maîtrise un stack technologique complet :\n• Frontend moderne (React/Vue)\n• Backend robuste (Node.js/Python)\n• Bases de données (SQL/NoSQL)\n• DevOps et cloud (AWS/Docker)\n• Méthodologies Agile/Scrum",
+    "langages": "**Langages de programmation** :\n⭐ JavaScript/TypeScript\n⭐ Python\n⭐ PHP\n⭐ SQL\n⭐ HTML/CSS (Bien sûr !)\n\n**Frameworks & Librairies** :\nReact, Vue, Node.js, Express, Tailwind CSS",
+    
+    // Expérience professionnelle détaillée
+    "expérience": "Daniel compte 5 ans d'expérience en développement web :\n\n🎯 **2025-Présent** : Créateur de contenu YouTube & Développeur Freelance\n• Partenariat avec Juxt_RTS\n• Développement d'applications innovantes\n\n🎯 **2023-2025** : Développeur Full Stack Senior\n• Gestion d'équipes techniques\n• Architecture de solutions complexes\n\n🎯 **2019-2023** : Développeur Frontend/Backend\n• Applications web performantes\n• Intégration d'APIs modernes",
+    "cv": "Le parcours professionnel de Daniel :\n📅 **Expérience** : 5+ ans en développement web full stack\n🎓 **Formation** : Master en Informatique\n💼 **Spécialités** : Apps web, UI/UX, Architecture logicielle\n🌐 **Domaines** : E-commerce, SaaS, Applications mobiles",
+
+    // Formation et éducation
+    "formation": "Parcours académique de Daniel :\n\n🎓 **Master en Informatique** - Université de Technologie (2016-2018)\n• Spécialisation Développement Web & IA\n• Projets de recherche innovants\n\n🎓 **Licence en Informatique** - Université des Sciences (2013-2016)\n• Fondements algorithmiques\n• Programmation avancée",
+    "études": "Daniel a suivi un cursus complet en informatique avec spécialisation dans les technologies web émergentes et l'intelligence artificielle appliquée.",
+
+    // Projets et réalisations
+    "projets": "Quel type de projets vous intéresse ? 🚀\n\n🌐 **Applications Web** : Plateformes SaaS, sites e-commerce\n📱 **Apps Mobiles** : Applications React Native performantes\n🎨 **Design System** : Création de systèmes de design cohérents\n🤖 **IA & Automation** : Solutions intelligentes et automatisées",
+    "réalisations": "Parmi les réalisations marquantes :\n• Applications web scalables servant des milliers d'utilisateurs\n• Systèmes de design réutilisables et modulaires\n• Solutions d'automatisation intelligentes\n• Plateformes e-commerce haute performance",
+    "portfolio": "Le portfolio présente des projets variés :\n- Applications web modernes\n- Solutions mobiles innovantes\n- Outils de productivité\n- Expériences utilisateur exceptionnelles",
+
+    // Contact et collaboration
+    "contact": "Plusieurs façons de contacter Daniel :\n\n📧 **Email** : Daniel.Oyougou@proton.me\n📱 **Téléphone** : +241 07 40 85 772\n💼 **LinkedIn** : /in/daniel-oyougou\n🐙 **GitHub** : /DanielOyougou\n🎥 **YouTube** : Développement & Tech",
+    "collaborer": "Envie de collaborer ? 🤝\nDaniel est ouvert aux :\n• Projets innovants\n• Partnerships techniques\n• Mentorat développement\n• Consultances stratégiques",
+    "embaucher": "Daniel est disponible pour :\n📌 Contrats freelance\n📌 Missions long terme\n📌 Projets innovants\n📌 Formations techniques\n\nContactez-le pour discuter de vos besoins !",
+
+    // Services et offres
+    "services": "Services proposés :\n\n💻 **Développement Sur Mesure**\n• Applications web & mobiles\n• APIs et microservices\n• Solutions e-commerce\n\n🎨 **Design & UX**\n• Interfaces utilisateur intuitives\n• Expériences digitales optimisées\n• Design systems\n\n🚀 **Consulting Tech**\n• Architecture logicielle\n• Optimisation performances\n• Stratégie digitale",
+    "tarifs": "Les tarifs sont adaptés à chaque projet. Discutons de vos besoins pour une proposition personnalisée ! 💰",
+
+    // Technologies spécifiques
+    "react": "React ? Excellente choice ! ⚛️\nDaniel maîtrise :\n• React Hooks & Context API\n• Redux State Management\n• Next.js SSR\n• React Native\n• Performance Optimization",
+    "javascript": "JavaScript est le langage de prédilection ! 💛\nExpertise en :\n• ES6+ Modern Syntax\n• Async/Await & Promises\n• Functional Programming\n• Performance Optimization",
+    "node": "Node.js pour des backends performants 🚀\nCompétences :\n• API REST/GraphQL\n• Microservices Architecture\n• Database Integration\n• Real-time Applications",
+    "python": "Python pour l'IA et l'automatisation 🐍\nUtilisations :\n• Scripting & Automation\n• Data Processing\n• Machine Learning\n• Backend Development",
+
+    // Questions personnelles
+    "passions": "Daniel est passionné par :\n🎮 Le gaming et l'esport\n🚀 Les technologies émergentes\n🎵 La musique électronique\n📚 L'apprentissage continu\n🌍 L'innovation digitale",
+    "hobbies": "En dehors du code :\n• Création de contenu YouTube\n• Exploration de nouvelles techs\n• Gaming compétitif\n• Musique production\n• Voyages digitaux",
+
+    // Questions générales et philosophiques
+    "avenir": "L'avenir du web ? 🌐\n• IA intégrée partout\n• Réalité augmentée\n• Web3 décentralisé\n• Interfaces naturelles\n• Expériences immersives",
+    "conseil": "Mon conseil du jour :\n« Le code est de la poésie logique. Chaque ligne compte, chaque fonction raconte une histoire. » ✨",
+    "citation": "« Innovate or stagnate - La technologie n'attend personne ! » 🚀",
+
+    // Humour et fun
+    "blague": "Pourquoi les développeurs préfèrent-ils le mode sombre ?\nParce que la lumière attire les bugs ! 🐛",
+    "devine": "Je suis partout mais nulle part, je comprends tout mais ne ressens rien. Qui suis-je ?\n\n... Une IA, bien sûr ! 😄",
+    "fun": "Saviez-vous que le premier bug informatique était... un vrai insecte ? 🦟\nUne mite s'était coincée dans un relais en 1947 !",
+
+    // Assistance technique
+    "aide": "Je peux vous aider avec :\n• Informations sur Daniel\n• Conseils techniques\n• Présentation des projets\n• Guidance sur le portfolio\n• Réponses à vos questions",
+    "que peux tu faire": "Mes capacités :\n💬 Conversations naturelles\n🔍 Informations détaillées\n🎯 Conseils personnalisés\n🚀 Inspiration technologique\n📚 Ressources utiles",
+
+    // Réponses intelligentes contextuelles
+    "default": "Intéressant ! 🤔 Pouvez-vous reformuler ou me dire si vous souhaitez discuter de :\n• Compétences techniques 🛠\n• Projets et réalisations 🚀\n• Collaboration 🤝\n• Technologies spécifiques 💻\n• Questions générales ❓"
+};
+
+// Fonction de recherche intelligente avec correspondance partielle
+function findBestResponse(message) {
+    const lowerMessage = message.toLowerCase().trim();
+    
+    // Recherche exacte d'abord
+    for (const key in botResponses) {
+        if (lowerMessage === key) {
+            return botResponses[key];
+        }
+    }
+    
+    // Recherche par mots-clés avec priorité
+    const keywords = [
+        { keys: ["react", "vue", "angular"], response: botResponses["react"] },
+        { keys: ["javascript", "js", "ecmascript"], response: botResponses["javascript"] },
+        { keys: ["node", "backend", "server"], response: botResponses["node"] },
+        { keys: ["python", "django", "flask"], response: botResponses["python"] },
+        { keys: ["compétence", "skill", "maîtrise", "expert"], response: botResponses["compétences"] },
+        { keys: ["expérience", "professionnel", "carrière", "travail"], response: botResponses["expérience"] },
+        { keys: ["formation", "étude", "diplôme", "université"], response: botResponses["formation"] },
+        { keys: ["projet", "réalisation", "portfolio", "travaux"], response: botResponses["projets"] },
+        { keys: ["contact", "email", "téléphone", "linkedin"], response: botResponses["contact"] },
+        { keys: ["service", "tarif", "prix", "budget"], response: botResponses["services"] },
+        { keys: ["passion", "hobby", "loisir", "intérêt"], response: botResponses["passions"] }
+    ];
+    
+    for (const keyword of keywords) {
+        for (const key of keyword.keys) {
+            if (lowerMessage.includes(key)) {
+                return keyword.response;
             }
+        }
+    }
+    
+    // Recherche partielle dans toutes les clés
+    for (const key in botResponses) {
+        if (lowerMessage.includes(key) && key.length > 3) {
+            return botResponses[key];
+        }
+    }
+    
+    // Si rien ne correspond, réponse par défaut intelligente
+    if (lowerMessage.includes("?")) {
+        return "Bonne question ! 🤔 " + botResponses.default;
+    }
+    
+    if (lowerMessage.length < 3) {
+        return "N'hésitez pas à développer votre pensée, je suis là pour vous écouter ! 💬";
+    }
+    
+    return botResponses.default;
+}
+
+// Fonction de traitement des messages améliorée
+function processMessage(message) {
+    // Nettoyage du message
+    const cleanMessage = message.trim();
+    
+    // Réponses spéciales pour messages courts/vides
+    if (cleanMessage.length === 0) {
+        return "Je suis là quand vous êtes prêt à discuter ! 👋";
+    }
+    
+    if (cleanMessage.length < 2) {
+        return "N'hésitez pas à m'en dire plus ! 😊";
+    }
+    
+    // Recherche de la meilleure réponse
+    const response = findBestResponse(cleanMessage);
+    
+    // Ajout d'un délai réaliste (plus court pour les réponses simples)
+    const delay = response.length > 100 ? 800 : 400;
+    
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(response);
+        }, delay);
+    });
+}
+
+// Mise à jour de la fonction d'envoi des messages
+chatbotSend.addEventListener('click', async function() {
+    const message = chatbotInput.value.trim();
+    if (message) {
+        addMessage(message, true);
+        chatbotInput.value = '';
+        
+        // Afficher un indicateur de frappe
+        const typingIndicator = document.createElement('div');
+        typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
+        typingIndicator.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+        chatbotMessages.appendChild(typingIndicator);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        
+        // Traitement du message avec la nouvelle fonction
+        try {
+            const response = await processMessage(message);
+            chatbotMessages.removeChild(typingIndicator);
+            addMessage(response, false);
+        } catch (error) {
+            chatbotMessages.removeChild(typingIndicator);
+            addMessage("Désolé, une erreur s'est produite. Pouvez-vous reformuler ?", false);
+        }
+    }
+});
+
+// Gestion améliorée de la touche Entrée
+chatbotInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        chatbotSend.click();
+    }
+});
+
+// Ajout du CSS pour l'indicateur de frappe
+const style = document.createElement('style');
+style.textContent = `
+    .typing-indicator {
+        opacity: 0.7;
+    }
+    .typing-dots {
+        display: flex;
+        gap: 4px;
+    }
+    .typing-dots span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #666;
+        animation: typing-bounce 1.4s infinite ease-in-out;
+    }
+    .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+    @keyframes typing-bounce {
+        0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
+    }
+`;
+document.head.appendChild(style);
             
-            function processMessage(message) {
-                const lowerMessage = message.toLowerCase();
-                let response = botResponses.default;
-                
-                for (const key in botResponses) {
-                    if (lowerMessage.includes(key)) {
-                        response = botResponses[key];
-                        break;
-                    }
-                }
-                
-                addMessage(response, false);
-            }
-            
-            chatbotSend.addEventListener('click', function() {
-                const message = chatbotInput.value.trim();
-                if (message) {
-                    addMessage(message, true);
-                    chatbotInput.value = '';
-                    
-                    // Simuler un délai de réponse
-                    setTimeout(function() {
-                        processMessage(message);
-                    }, 1000);
-                }
-            });
-            
-            chatbotInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    chatbotSend.click();
-                }
-            });
+          
             // Fermeture en cliquant en dehors
 document.addEventListener('click', function(event) {
     const chatbotWindow = document.querySelector('.chatbot-window');
@@ -2093,6 +2244,7 @@ function attachGameEvents() {
     
 </body>
 </html>
+
 
 
 
