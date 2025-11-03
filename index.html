@@ -893,10 +893,10 @@
                 <div class="skill">
                     <div class="skill-name">
                         <span>React</span>
-                        <span>85%</span>
+                        <span>5%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%"></div>
+                        <div class="skill-level" style="width: 5%"></div>
                     </div>
                 </div>
                 <div class="skill">
@@ -1133,7 +1133,7 @@
             "compétences": "🚀 **Frontend** : HTML5, CSS3, JavaScript, React, Vue\n🔥 **Backend** : Node.js, Python, PHP, APIs\n🎨 **Design** : UI/UX, Figma, Design Systems\n📱 **Mobile** : React Native, PWAs",
             "expérience": "Daniel a 5+ ans d'expérience :\n• Développement Full Stack\n• Architecture Applications\n• Gestion de Projets\n• Mentorat Technique",
             "projets": "📂 **Types de projets** :\n• Applications Web Modernes\n• Solutions SaaS\n• Plateformes E-commerce\n• Outils Productivité\n• Applications Mobile",
-            "contact": "📧 Email: Daniel.Oyougou@proton.me\n📱 Tél: +241 07 40 85 772\n💼 LinkedIn: /in/daniel-oyougou",
+            "contact": "📧 Email: JuanKaisen3@gmail.com📱 Tél: +241 07 40 85 772\n💼 LinkedIn: /in/daniel-oyougou",
             "technologies": "🛠 **Stack Technique** :\n• JavaScript/TypeScript\n• React/Next.js\n• Node.js/Python\n• Bases de données SQL/NoSQL\n• AWS & Docker",
             "conseil": "💡 **Conseil du jour** : 'Le meilleur code est celui qui se lit comme une histoire bien écrite.'",
             "fun": "😄 Saviez-vous ? Le premier programmeur était une femme : Ada Lovelace !",
@@ -1323,6 +1323,18 @@
             }
         }
 
+        function drawObstacles() {
+            ctx.fillStyle = '#f1c40f';
+            for (let obstacle of obstacles) {
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                
+                // Ajouter des détails aux obstacles pour les rendre plus visibles
+                ctx.fillStyle = '#e67e22';
+                ctx.fillRect(obstacle.x + 5, obstacle.y + 5, obstacle.width - 10, obstacle.height - 10);
+                ctx.fillStyle = '#f1c40f';
+            }
+        }
+
         function updateGame() {
             if (!gameRunning) return;
             
@@ -1365,6 +1377,7 @@
             if (carX + carWidth > roadX + roadWidth) carX = roadX + roadWidth - carWidth;
             
             drawCar();
+            drawObstacles();
             
             ctx.fillStyle = '#ffffff';
             ctx.font = '16px Arial';
