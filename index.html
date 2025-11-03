@@ -817,6 +817,117 @@
             section { padding: 25px 20px; }
             .skills-grid { grid-template-columns: 1fr; }
         }
+        
+        @media (max-width: 768px) {
+    /* ... vos styles existants ... */
+    
+    /* CORRECTION CHATBOT ET JEU */
+    .chatbot-container {
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    .game-container {
+        left: 15px;
+        bottom: 15px;
+    }
+    
+    .chatbot-window, .game-window {
+        width: 95vw;
+        max-width: 95vw;
+        right: 2.5vw;
+        left: 2.5vw;
+        bottom: 80px;
+    }
+    
+    .game-window {
+        height: 500px;
+    }
+    
+    /* Centrer le contenu du jeu */
+    .game-content {
+        padding: 20px 15px;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 320px;
+        height: 350px;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        gap: 10px;
+        max-width: 250px;
+    }
+    
+    .game-btn {
+        min-width: auto;
+        padding: 12px 20px;
+    }
+    
+    .android-controls {
+        max-width: 250px;
+        margin-top: 10px;
+    }
+    
+    .android-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+}
+        @media (max-width: 480px) {
+    /* ... vos styles existants ... */
+    
+    /* CORRECTIONS SUPPLÉMENTAIRES */
+    .chatbot-toggle, .game-toggle {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+    
+    .chatbot-window, .game-window {
+        width: 98vw;
+        right: 1vw;
+        left: 1vw;
+        height: 450px;
+    }
+    
+    .game-window {
+        height: 480px;
+    }
+    
+    #gameCanvas {
+        height: 300px;
+        max-width: 280px;
+    }
+    
+    .chatbot-messages {
+        padding: 15px;
+    }
+    
+    .message {
+        max-width: 90%;
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+    
+    .chatbot-input {
+        padding: 10px;
+    }
+    
+    .chatbot-input input {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Centrage amélioré pour le jeu */
+    .game-content {
+        justify-content: center;
+        gap: 15px;
+    }
+}
     </style>
 </head>
 <body>
@@ -1196,7 +1307,26 @@
             if (message) {
                 addMessage(message, true);
                 chatbotInput.value = '';
-                
+
+                // Fermeture en cliquant en dehors - VERSION CORRIGÉE
+document.addEventListener('click', function(event) {
+    const chatbotWindow = document.querySelector('.chatbot-window');
+    const chatbotToggle = document.querySelector('.chatbot-toggle');
+    const gameWindow = document.querySelector('.game-window');
+    const gameToggle = document.querySelector('.game-toggle');
+    
+    if (chatbotWindow.style.display === 'flex' && 
+        !chatbotWindow.contains(event.target) && 
+        !chatbotToggle.contains(event.target)) {
+        chatbotWindow.style.display = 'none';
+    }
+    
+    if (gameWindow.style.display === 'flex' && 
+        !gameWindow.contains(event.target) && 
+        !gameToggle.contains(event.target)) {
+        gameWindow.style.display = 'none';
+    }
+});
                 // Indicateur de frappe
                 const typingIndicator = document.createElement('div');
                 typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
@@ -1417,6 +1547,34 @@
             drawRoad();
             drawCar();
         });
+        // Redimensionnement responsive du canvas
+function resizeCanvas() {
+    const canvas = document.getElementById('gameCanvas');
+    const gameContent = document.querySelector('.game-content');
+    
+    if (window.innerWidth <= 480) {
+        canvas.width = 280;
+        canvas.height = 300;
+    } else if (window.innerWidth <= 768) {
+        canvas.width = 320;
+        canvas.height = 350;
+    } else {
+        canvas.width = 350;
+        canvas.height = 400;
+    }
+    
+    // Redessiner si le jeu est en cours
+    if (!gameRunning) {
+        drawRoad();
+        drawCar();
+    }
+}
+
+// Écouter le redimensionnement
+window.addEventListener('resize', resizeCanvas);
+
+// Initialiser au chargement
+window.addEventListener('load', resizeCanvas);
 
         // Initialisation du jeu
         drawRoad();
@@ -1434,3 +1592,4 @@
     </script>
 </body>
 </html>
+
