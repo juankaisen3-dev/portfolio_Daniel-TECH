@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Daniel Oyougou - Développeur Full Stack</title>
+    <title>DEV daniel tech</title>
+    
     <style>
-        /* Variables et reset */
+        
+        /* Variables et styles de base */
         :root {
-            --primary-color: #0071e3;
-            --secondary-color: #1d1d1f;
-            --accent-color: #ff2d55;
-            --light-color: #f5f5f7;
-            --dark-color: #000;
-            --text-color: #1d1d1f;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
 
@@ -22,17 +26,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #fff;
+            background-color: #f5f7fa;
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* INTRO RAPIDE */
+        /* Styles pour le diaporama d'introduction */
         .slideshow-container {
             position: fixed;
             top: 0;
@@ -40,7 +44,7 @@
             width: 100%;
             height: 100vh;
             z-index: 1000;
-            background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
+            background-color: var(--secondary-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -59,7 +63,7 @@
             text-align: center;
             padding: 20px;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 1s ease;
         }
 
         .slide.active {
@@ -67,19 +71,18 @@
         }
 
         .slide h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         .slide p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            opacity: 0.9;
+            font-size: 1.5rem;
+            max-width: 800px;
         }
 
         .slide-icon {
-            font-size: 4rem;
+            font-size: 5rem;
             margin-bottom: 30px;
             color: var(--primary-color);
         }
@@ -89,8 +92,8 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 3px;
+            width: 200px;
+            height: 4px;
             background-color: rgba(255, 255, 255, 0.3);
             border-radius: 2px;
             overflow: hidden;
@@ -110,10 +113,9 @@
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 8px 15px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 0.9rem;
             transition: var(--transition);
         }
 
@@ -121,7 +123,7 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* CONTENU PRINCIPAL */
+        /* Styles pour le contenu principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -136,28 +138,14 @@
             transform: translateY(0);
         }
 
-        /* HEADER STYLE APPLE */
         header {
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            border-radius: 20px;
-            margin-bottom: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
             box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.1);
-            z-index: 1;
         }
 
         .profile-img {
@@ -166,47 +154,32 @@
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid white;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             box-shadow: var(--shadow);
-            position: relative;
-            z-index: 2;
-            transition: var(--transition);
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
-            font-weight: 700;
-            position: relative;
-            z-index: 2;
         }
 
         .title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 20px;
-            opacity: 0.95;
-            position: relative;
-            z-index: 2;
+            opacity: 0.9;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 25px;
-            position: relative;
-            z-index: 2;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .social-links a {
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             transition: var(--transition);
-            padding: 10px;
         }
 
         .social-links a:hover {
@@ -214,62 +187,55 @@
             color: var(--accent-color);
         }
 
-        /* SECTIONS */
+        /* Sections du CV */
         section {
             background: white;
-            padding: 40px;
-            margin-bottom: 40px;
-            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
             box-shadow: var(--shadow);
-            border: 1px solid #e0e0e0;
         }
 
         h2 {
             color: var(--secondary-color);
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
             display: inline-block;
-            font-size: 2.2rem;
-            font-weight: 700;
         }
 
-        /* COMPÉTENCES */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
 
         .skill {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .skill-name {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 5px;
         }
 
         .skill-bar {
-            height: 10px;
-            background-color: var(--light-color);
-            border-radius: 10px;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
             overflow: hidden;
         }
 
         .skill-level {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), #0056b3);
-            border-radius: 10px;
-            transition: width 1s ease-in-out;
+            background-color: var(--primary-color);
+            border-radius: 4px;
         }
 
-        /* TIMELINE */
         .timeline {
             position: relative;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -277,7 +243,7 @@
             content: '';
             position: absolute;
             width: 4px;
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -285,7 +251,7 @@
         }
 
         .timeline-item {
-            padding: 15px 40px;
+            padding: 10px 40px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
@@ -296,10 +262,10 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background: white;
+            background-color: white;
             border: 4px solid var(--primary-color);
             border-radius: 50%;
-            top: 20px;
+            top: 15px;
             z-index: 1;
         }
 
@@ -320,73 +286,198 @@
         }
 
         .timeline-content {
-            padding: 25px;
-            background: var(--light-color);
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .timeline-content h3 {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: var(--secondary-color);
-            font-size: 1.3rem;
         }
 
         .timeline-content .date {
             font-style: italic;
             color: var(--primary-color);
-            margin-bottom: 12px;
-            font-weight: 600;
+            margin-bottom: 10px;
         }
 
-        /* CHATBOT AMÉLIORÉ */
+        /* Styles pour les boutons de plateforme */
+        .platforms-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .platform-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .platform-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .platform-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 20px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .platform-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: white;
+        }
+
+        .platform-btn i {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .platform-btn span {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .platform-btn small {
+            color: #7f8c8d;
+            font-size: 0.8rem;
+        }
+
+        .android-btn i { color: #3DDC84; }
+        .tablet-btn i { color: #3498db; }
+        .ios-btn i { color: #000; }
+
+        /* Styles pour la section PlayStation & Animés */
+        .entertainment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .playstation-section, .anime-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .playstation-section h3, .anime-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .games-carousel {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: thin;
+        }
+
+        .game-card {
+            min-width: 150px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .anime-card {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 15px 10px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .anime-card:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* Styles pour le chatbot */
         .chatbot-container {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
             z-index: 100;
         }
 
         .chatbot-toggle {
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0, 113, 227, 0.4);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
-            border: none;
         }
 
         .chatbot-toggle:hover {
             transform: scale(1.1);
-            background: #0056b3;
+            background-color: var(--secondary-color);
         }
 
         .chatbot-window {
             position: absolute;
-            bottom: 80px;
+            bottom: 70px;
             right: 0;
-            width: 380px;
-            height: 500px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            height: 450px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             display: none;
             flex-direction: column;
             overflow: hidden;
-            border: 1px solid #e0e0e0;
         }
 
         .chatbot-header {
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             color: white;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -394,293 +485,232 @@
 
         .chatbot-header h3 {
             margin: 0;
-            font-size: 1.3rem;
         }
 
         .chatbot-close {
             background: none;
             border: none;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            padding: 5px;
         }
 
         .chatbot-messages {
             flex: 1;
-            padding: 20px;
+            padding: 15px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
         }
 
         .message {
-            max-width: 85%;
-            padding: 12px 18px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            word-wrap: break-word;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 0.9rem;
         }
 
         .bot-message {
             align-self: flex-start;
-            background: var(--light-color);
-            border-bottom-left-radius: 8px;
-            color: var(--text-color);
+            background-color: #f0f0f0;
+            border-bottom-left-radius: 5px;
         }
 
         .user-message {
             align-self: flex-end;
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             color: white;
-            border-bottom-right-radius: 8px;
+            border-bottom-right-radius: 5px;
         }
 
         .chatbot-input {
             display: flex;
-            padding: 15px;
+            padding: 10px;
             border-top: 1px solid #eee;
-            background: #fafafa;
         }
 
         .chatbot-input input {
             flex: 1;
-            padding: 12px 18px;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 25px;
+            border-radius: 20px;
             outline: none;
-            font-size: 0.95rem;
-            background: white;
         }
 
         .chatbot-input button {
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             margin-left: 10px;
             cursor: pointer;
             transition: var(--transition);
         }
 
         .chatbot-input button:hover {
-            background: #0056b3;
+            background-color: var(--secondary-color);
         }
 
-        /* INDICATEUR DE FRAÎCHE */
-        .typing-indicator {
-            opacity: 0.7;
-        }
+          /* Styles pour le mini-jeu - VERSION CORRIGÉE */
+.game-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+}
 
-        .typing-dots {
-            display: flex;
-            gap: 4px;
-        }
+.game-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
 
-        .typing-dots span {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #666;
-            animation: typing-bounce 1.4s infinite ease-in-out;
-        }
+.game-toggle:hover {
+    transform: scale(1.1);
+    background-color: #c0392b;
+}
 
-        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+.game-window {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
 
-        @keyframes typing-bounce {
-            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
-            40% { transform: scale(1); opacity: 1; }
-        }
+.game-header {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
 
-        /* GAME AVEC BOUTONS ANDROID */
-        .game-container {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            z-index: 100;
-        }
+.game-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
 
-        .game-toggle {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.6rem;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(255, 45, 85, 0.4);
-            transition: var(--transition);
-            border: none;
-        }
+.game-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
 
-        .game-toggle:hover {
-            transform: scale(1.1);
-            background: #e60039;
-        }
+.game-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #2c3e50;
+    gap: 15px;
+    min-height: 0;
+}
 
-        .game-window {
-            position: absolute;
-            bottom: 80px;
-            left: 0;
-            width: 420px;
-            height: 550px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-        }
+#gameCanvas {
+    background-color: #1a2530;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    flex-shrink: 0;
+}
 
-        .game-header {
-            background: var(--accent-color);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    flex-shrink: 0;
+}
 
-        .game-header h3 {
-            margin: 0;
-            font-size: 1.3rem;
-        }
+.game-btn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--primary-color), #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+    flex: 1;
+    min-width: 120px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
 
-        .game-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 5px;
-        }
+.game-btn:hover {
+    background: linear-gradient(135deg, #2980b9, var(--secondary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
-        .game-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 25px;
-            background: var(--secondary-color);
-            gap: 20px;
-        }
-
-        #gameCanvas {
-            background: #1a2530;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            max-width: 100%;
-        }
-
-        .game-controls {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 350px;
-        }
-
-        .game-btn {
-            padding: 15px 25px;
-            background: linear-gradient(135deg, var(--primary-color), #2980b9);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            font-weight: 600;
-            flex: 1;
-            min-width: 140px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .game-btn:hover {
-            background: linear-gradient(135deg, #2980b9, var(--secondary-color));
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* BOUTONS ANDROID POUR LE JEU */
-        .android-controls {
-            display: none;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 300px;
-            margin-top: 15px;
-        }
-
-        .android-btn {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            border: 3px solid white;
-            color: white;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            user-select: none;
-            -webkit-user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .android-btn:active {
-            background: rgba(255, 255, 255, 0.4);
-            transform: scale(0.95);
-        }
-
-        /* FOOTER AMÉLIORÉ */
+.game-btn:active {
+    transform: translateY(0);
+}
+        /* Footer styles */
         .cv-footer {
             background: var(--secondary-color);
             color: white;
-            padding: 50px 20px 30px;
-            margin-top: 60px;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
         .footer-section h3 {
             color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
         }
 
         .footer-section p {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             opacity: 0.9;
         }
 
         .availability-status {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
         .status-dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background-color: #2ecc71;
             border-radius: 50%;
             animation: pulse 2s infinite;
@@ -695,14 +725,14 @@
         .contact-info p {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
+            gap: 10px;
+            margin-bottom: 8px;
         }
 
         .social-footer {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .social-footer a {
@@ -710,70 +740,68 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: var(--transition);
-            padding: 5px 0;
         }
 
         .social-footer a:hover {
             color: var(--primary-color);
-            transform: translateX(5px);
-        }
-
-        .download-section {
-            text-align: center;
         }
 
         .download-btn {
             background: var(--primary-color);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 12px;
+            padding: 12px 20px;
+            border-radius: 5px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 8px;
             transition: var(--transition);
             width: 100%;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+            justify-content: center;
         }
 
         .download-btn:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
+            background: #2980b9;
         }
 
         .file-size {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.7;
+            margin-top: 5px;
+            text-align: center;
         }
 
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
+        }
+
+        .footer-legal {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .footer-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .footer-links a {
             color: white;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             opacity: 0.8;
             transition: var(--transition);
         }
@@ -784,204 +812,759 @@
 
         .footer-stats {
             text-align: right;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             opacity: 0.8;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .slide h1 { font-size: 2.2rem; }
-            .slide p { font-size: 1.1rem; }
-            
-            .chatbot-window, .game-window {
-                width: 90vw;
-                right: 5vw;
-                left: 5vw;
-            }
-            
-            .android-controls {
-                display: flex;
-            }
-            
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item::after { left: 21px; }
-            .left, .right { left: 0; }
-            
-            .footer-content { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-        }
+           /* Responsive design amélioré */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+}
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            section { padding: 25px 20px; }
-            .skills-grid { grid-template-columns: 1fr; }
-        }
-        
-        @media (max-width: 768px) {
-    /* ... vos styles existants ... */
+@media (max-width: 992px) {
+    .slide h1 {
+        font-size: 2.8rem;
+    }
     
-    /* CORRECTION CHATBOT ET JEU */
+    .slide p {
+        font-size: 1.3rem;
+    }
+    
+    .profile-img {
+        width: 160px;
+        height: 160px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .title {
+        font-size: 1.2rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .slide h1 {
+        font-size: 2.2rem;
+    }
+    
+    .slide p {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+    
+    .slide-icon {
+        font-size: 4rem;
+    }
+    
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 21px;
+    }
+    
+    .left, .right {
+        left: 0;
+    }
+    
+    /* Chatbot responsive */
+    .chatbot-window {
+        width: 90vw;
+        height: 60vh;
+        right: 5vw;
+        left: 5vw;
+        bottom: 80px;
+    }
+    
+    /* Game responsive */
+    .game-window {
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        right: 5vw;
+        bottom: 80px;
+    }
+    
+    .chatbot-messages {
+        padding: 10px;
+    }
+    
+    .message {
+        max-width: 85%;
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+    
+    .game-content {
+        padding: 15px;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 7/8;
+    }
+    
+    .game-controls {
+        flex-wrap: wrap;
+    }
+    
+    .game-btn {
+        flex: 1;
+        min-width: 120px;
+        margin: 5px;
+    }
+    
+    .chatbot-container, .game-container {
+        bottom: 15px;
+    }
+    
+    .chatbot-container {
+        right: 15px;
+    }
+    
+    .game-container {
+        left: 15px;
+    }
+    
+    .chatbot-toggle, .game-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-stats {
+        text-align: center;
+    }
+    
+    /* Nouvelles sections responsive */
+    .entertainment-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .platform-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .games-carousel {
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+    
+    .game-card {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 30px 15px;
+    }
+    
+    .profile-img {
+        width: 130px;
+        height: 130px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .title {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+    
+    /* Styles pour le chatbot */
+    
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.chatbot-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--secondary-color);
+}
+
+.chatbot-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chatbot-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #f0f0f0;
+    border-bottom-left-radius: 5px;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.chatbot-input button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.chatbot-input button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* RESPONSIVE CHATBOT */
+
+@media (max-width: 768px) {
+    .chatbot-window {
+        width: 90vw;
+        max-width: 400px;
+        height: 60vh;
+        right: 5vw;
+        bottom: 80px;
+    }
+    
+    .chatbot-container {
+        right: 20px;
+        bottom: 20px;
+    }
+    
+    .chatbot-toggle {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .chatbot-window {
+        width: 95vw;
+        max-width: none;
+        height: 65vh;
+        right: 2.5vw;
+        bottom: 70px;
+    }
+    
     .chatbot-container {
         right: 15px;
         bottom: 15px;
     }
     
-    .game-container {
-        left: 15px;
-        bottom: 15px;
+    .chatbot-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
     
-    .chatbot-window, .game-window {
-        width: 95vw;
-        max-width: 95vw;
-        right: 2.5vw;
-        left: 2.5vw;
-        bottom: 80px;
-    }
-    
-    .game-window {
-        height: 500px;
-    }
-    
-    /* Centrer le contenu du jeu */
-    .game-content {
-        padding: 20px 15px;
-    }
-    
-    #gameCanvas {
-        width: 100%;
-        max-width: 320px;
-        height: 350px;
-    }
-    
-    .game-controls {
-        flex-direction: column;
-        gap: 10px;
-        max-width: 250px;
-    }
-    
-    .game-btn {
-        min-width: auto;
-        padding: 12px 20px;
-    }
-    
-    .android-controls {
-        max-width: 250px;
-        margin-top: 10px;
-    }
-    
-    .android-btn {
-        width: 60px;
-        height: 60px;
-        font-size: 1.3rem;
-    }
-}
-        @media (max-width: 480px) {
-    /* ... vos styles existants ... */
-    
-    /* CORRECTIONS SUPPLÉMENTAIRES */
-    .chatbot-toggle, .game-toggle {
-        width: 55px;
-        height: 55px;
-        font-size: 1.4rem;
-    }
-    
-    .chatbot-window, .game-window {
-        width: 98vw;
-        right: 1vw;
-        left: 1vw;
-        height: 450px;
-    }
-    
-    .game-window {
-        height: 480px;
-    }
-    
-    #gameCanvas {
-        height: 300px;
-        max-width: 280px;
+    .chatbot-header {
+        padding: 12px 15px;
     }
     
     .chatbot-messages {
-        padding: 15px;
+        padding: 10px;
+    }
+    
+    .message {
+        max-width: 85%;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .chatbot-window {
+        width: 92vw;
+        height: 70vh;
+        right: 4vw;
+    }
+    
+    .chatbot-container {
+        right: 10px;
+        bottom: 10px;
+    }
+    
+    .chatbot-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .chatbot-input {
+        padding: 8px;
+    }
+    
+    .chatbot-input input {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Pour les très petits écrans en paysage */
+@media (max-height: 500px) and (orientation: landscape) {
+    .chatbot-window {
+        height: 80vh;
+        width: 70vw;
+        right: 15vw;
+        bottom: 60px;
+    }
+}
+    
+    
+    /* Game mobile */
+    
+    .game-window {
+        width: 95vw;
+        height: 75vh;
+        left: 2.5vw;
+        right: 2.5vw;
+    }
+    
+    .chatbot-header, .game-header {
+        padding: 12px;
+    }
+    
+    .chatbot-header h3, .game-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .chatbot-input {
+        padding: 8px;
+    }
+    
+    .chatbot-input input {
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
     
     .message {
         max-width: 90%;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    #gameCanvas {
+        max-width: 260px;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .game-btn {
+        width: 100%;
+        margin: 2px 0;
+    }
+    
+    .chatbot-container, .game-container {
+        bottom: 10px;
+    }
+    
+    .chatbot-container {
+        right: 10px;
+    }
+    
+    .game-container {
+        left: 10px;
+    }
+    
+    .chatbot-toggle, .game-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-links a {
+        font-size: 1.3rem;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+    
+    .progress-bar {
+        width: 150px;
+    }
+    
+    .skip-btn {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px;
         font-size: 0.9rem;
-        padding: 10px 15px;
+    }
+    
+    /* Nouvelles sections mobile */
+    .platform-btn {
+        padding: 15px 10px;
+    }
+    
+    .platform-btn i {
+        font-size: 1.5rem;
+    }
+    
+    .entertainment-grid {
+        gap: 20px;
+    }
+    
+    .playstation-section, .anime-section {
+        padding: 20px 15px;
+    }
+    
+    .game-card, .anime-card {
+        padding: 15px 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .slide h1 {
+        font-size: 1.8rem;
+    }
+    
+    .slide p {
+        font-size: 1rem;
+    }
+    
+    .slide-icon {
+        font-size: 3rem;
+    }
+    
+    .chatbot-window {
+        height: 70vh;
+    }
+    
+    .game-window {
+        height: 80vh;
+    }
+    
+    .chatbot-messages {
+        padding: 8px;
+    }
+    
+    .message {
+        max-width: 95%;
+    }
+    
+    #gameCanvas {
+        max-width: 220px;
     }
     
     .chatbot-input {
-        padding: 10px;
+        flex-wrap: wrap;
     }
     
     .chatbot-input input {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+        width: 100%;
+        margin-bottom: 8px;
     }
     
-    /* Centrage amélioré pour le jeu */
+   
+
+/* très petits écrans */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .slideshow-container {
+        position: absolute;
+        height: 100%;
+    }
+    
+    .slide {
+        padding: 10px;
+    }
+    
+    .slide h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .slide p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .slide-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .progress-bar {
+        bottom: 15px;
+    }
+    
+    .skip-btn {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+   
+    
+    .game-window {
+        height: 85vh;
+        width: 85vw;
+        left: 7.5vw;
+        right: 7.5vw;
+    }
+    
+    .chatbot-messages {
+        max-height: 60vh;
+    }
+    
     .game-content {
-        justify-content: center;
-        gap: 15px;
+        padding: 10px;
+    }
+    
+    #gameCanvas {
+        max-width: 200px;
     }
 }
+     /*  contrôles tactiles */
+     
+.touch-controls {
+    touch-action: manipulation;
+    
+    /* la réactivité tactile */
+}
+
+.left-btn, .right-btn {
+    user-select:none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    border: 3px solid white;
+}
+
+/* Feedback visuel pendant le touch */
+.left-btn:active, .right-btn:active {
+    transform: scale(0.95);
+    background-color: #2c5282 !important;
+}
+
+/* Cacher les boutons sur desktop si nécessaire */
+
+   @media (min-width: 1024px) {
+    .touch-controls {
+        display:none;
+    }
+}
+
+/* Sur mobile, cacher les instructions clavier */
+@media (max-width: 768px) {
+    .game-controls .key-instructions {
+        display:none;
+    }
+}
+        /* RESET URGENCE CHATBOT */
+.chatbot-container {
+    right: 20px !important;
+    bottom: 20px !important;
+}
+
+.chatbot-window {
+    right: 0 !important;
+    left: auto !important;
+    transform: none !important;
+}
+
     </style>
 </head>
 <body>
-    <!-- INTRO RAPIDE -->
+    <!-- code HTML -->
+    
+  <!-- Diaporama -->
     <div class="slideshow-container">
         <div class="slide active">
             <i class="fas fa-user-tie slide-icon"></i>
-            <h1>Bienvenue</h1>
-            <p>Découvrez mon univers digital et mes compétences</p>
+            <h1>Bienvenue sur mon portfolio</h1>
+            <p>Découvrez mon parcours professionnel et mes compétences</p>
         </div>
         <div class="slide">
             <i class="fas fa-graduation-cap slide-icon"></i>
-            <h1>Expertise & Innovation</h1>
-            <p>Un parcours dédié à l'excellence technique</p>
+            <h1>Formation et Expériences</h1>
+            <p>Un aperçu de mon parcours académique et professionnel</p>
         </div>
         <div class="slide">
             <i class="fas fa-code slide-icon"></i>
-            <h1>Technologies Modernes</h1>
-            <p>Maîtrise des dernières stacks technologiques</p>
+            <h1>Compétences Techniques</h1>
+            <p>Mes domaines d'expertise et technologies maîtrisées</p>
         </div>
         <div class="slide">
             <i class="fas fa-gamepad slide-icon"></i>
-            <h1>Interactif & Dynamique</h1>
-            <p>Explorez avec des éléments interactifs</p>
+            <h1>Interactif et Dynamique</h1>
+            <p>Explorez mon journal avec des éléments interactifs</p>
         </div>
         <div class="progress-bar">
             <div class="progress"></div>
         </div>
-        <button class="skip-btn">Passer</button>
+        <button class="skip-btn">Passer l'intro</button>
     </div>
 
-    <!-- CONTENU PRINCIPAL -->
+    <!-- Contenu principal du CV -->
     <div class="container">
-        <header>
-            <img src="Snapchat-758596195.jpg" alt="Daniel Oyougou" class="profile-img">
-            <h1>Daniel Oyougou</h1>
-            <p class="title">Développeur Full Stack & Architecte Digital</p>
-            <p>Passionné par la création d'expériences utilisateur exceptionnelles et innovantes</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-        </header>
-
+                     <header class="text-center py-16 px-5 bg-gradient-to-br from-blue-600 to-blue-900 text-white rounded-xl shadow-2xl mb-8 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
+    <div class="relative z-20">
+        <img src="Snapchat-758596195.jpg" 
+             alt="Photo de profil" 
+             class="w-44 h-44 rounded-full object-cover border-4 border-white shadow-2xl mx-auto mb-5 hover:scale-105 transition-transform duration-300">
+        <h1 class="text-4xl font-bold mb-3 text-white">Daniel_Oyougou</h1>
+        <p class="text-xl mb-4 text-white opacity-95">Développeur Full Stack & Concepteur d'Applications Web</p>
+        <p class="mb-6 text-lg text-white opacity-90">Passionné par la création d'expériences utilisateur innovantes et performantes</p>
+        <div class="social-links flex justify-center gap-6 mt-6">
+            <a href="#" class="text-white hover:text-red-400 transition-all duration-300 text-2xl transform hover:scale-110">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-white hover:text-red-400 transition-all duration-300 text-2xl transform hover:scale-110">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="text-white hover:text-red-400 transition-all duration-300 text-2xl transform hover:scale-110">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-white hover:text-red-400 transition-all duration-300 text-2xl transform hover:scale-110">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</header>
+    
         <section id="about">
             <h2>À Propos de Moi</h2>
-            <p>Développeur full stack visionnaire avec une passion pour la création de solutions digitales innovantes. Spécialisé dans le développement d'applications web modernes, l'architecture logicielle et l'expérience utilisateur.</p>
-            <p>Je maîtrise l'ensemble du cycle de développement, de la conception à la mise en production, en créant des produits qui allient performance, design .</p>
+            <p>Développeur full stack avec 5 ans d'expérience avenir😅 dans la conception et le développement d'applications web  et des games modernes. Passionné par les nouvelles technologies et toujours à la recherche de défis techniques stimulants.</p>
+            <p>Je maîtrise l'ensemble du cycle de développement,[sia] de la conception à la mise en production, en passant par les tests et l'optimisation des performances.</p>
         </section>
 
         <section id="skills">
-            <h2>Compétences Techniques</h2>
+            <h2>Compétences</h2>
             <div class="skills-grid">
                 <div class="skill">
                     <div class="skill-name">
@@ -995,10 +1578,10 @@
                 <div class="skill">
                     <div class="skill-name">
                         <span>JavaScript</span>
-                        <span>50%</span>
+                        <span>30%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 50%"></div>
+                        <div class="skill-level" style="width: 30%"></div>
                     </div>
                 </div>
                 <div class="skill">
@@ -1013,15 +1596,6 @@
                 <div class="skill">
                     <div class="skill-name">
                         <span>Node.js</span>
-                        <span>12%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 12%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <div class="skill-name">
-                        <span>Python</span>
                         <span>2%</span>
                     </div>
                     <div class="skill-bar">
@@ -1030,11 +1604,20 @@
                 </div>
                 <div class="skill">
                     <div class="skill-name">
-                        <span>UI/UX Design</span>
-                        <span>90%</span>
+                        <span>Python</span>
+                        <span>5%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
+                        <div class="skill-level" style="width: 5%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">
+                        <span>UI/UX Design</span>
+                        <span>30%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 30%"></div>
                     </div>
                 </div>
             </div>
@@ -1045,27 +1628,28 @@
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>Créateur de Contenu & Développeur</h3>
+                        <h3>Développeur Full Stack junior</h3>
                         <p class="date">2025 - Présent</p>
-                        <p>YouTube & Partenariats</p>
-                        <p>Création de contenu éducatif sur le développement web et les technologies émergentes. Partenariat stratégique avec Juxt_RTS.</p>
-                        <p>Développement d'applications innovantes et mentorat technique.</p>
+                        <p>YouTube.</p>
+                        <p>Création de contenu éducatif sur le développement web et les technologies émergentes.</p>
+                        <p> En partenariat avec Juxt_RTS😏</p>
+                        <p>Conception et développement d'applications web complexes avec React et Node.js. Gestion d'une équipe de 3 développeurs.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>Développeur Full Stack Senior</h3>
-                        <p class="date">2023 - 2025</p>
-                        <p>TechInnovation</p>
-                        <p>Architecture et développement d'applications web complexes. Gestion d'équipe et optimisation des performances.</p>
+                        <h3>Développeur Frontend</h3>
+                        <p class="date">2019 - 2021</p>
+                        <p>WebInnovation</p>
+                        <p>Création d'interfaces utilisateur responsives et optimisation des performances des applications web.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>Développeur Full Stack</h3>
-                        <p class="date">2020 - 2023</p>
-                        <p>DigitalSolutions</p>
-                        <p>Développement full stack d'applications web modernes utilisant les dernières technologies.</p>
+                        <h3>Développeur Web Junior</h3>
+                        <p class="date">2018 - 2019</p>
+                        <p>StartUp Digital</p>
+                        <p>Développement de sites web et d'applications en utilisant HTML, CSS, JavaScript et PHP.</p>
                     </div>
                 </div>
             </div>
@@ -1076,54 +1660,104 @@
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>Master en Informatique</h3>
-                        <p class="date">2018 - 2020</p>
-                        <p>Université de Technologie Avancée</p>
-                        <p>Spécialisation en développement web, intelligence artificielle et architectures cloud.</p>
+                        <h3>Master en Informatique (Télégram)</h3>
+                        <p class="date">2016 - 2018</p>
+                        <p>Université de Technologie</p>
+                        <p>Spécialisation en développement web et technologies émergentes.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>Licence en Informatique</h3>
-                        <p class="date">2015 - 2018</p>
-                        <p>Université des Sciences Numériques</p>
-                        <p>Fondements de l'informatique, algorithmique avancée et programmation orientée objet.</p>
+                        <h3>Licence en Informatique (Télégram)</h3>
+                        <p class="date">2013 - 2016</p>
+                        <p>Université des Sciences</p>
+                        <p>Fondements de l'informatique, algorithmique et programmation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nouvelle Section Jeux Multi-plateformes -->
+        <section id="gaming-platforms">
+            <h2>🎮 Jeux Multi-plateformes</h2>
+            <div class="platforms-container">
+                <div class="platform-section">
+                    <h3>📱 Mobile & Tablette</h3>
+                    <div class="platform-buttons">
+                        <button class="platform-btn android-btn" onclick="downloadGame('android')">
+                            <i class="fab fa-android"></i>
+                            <span>Télécharger pour Android</span>
+                            <small>APK - 85 MB</small>
+                        </button>
+                        <button class="platform-btn tablet-btn" onclick="downloadGame('tablet')">
+                            <i class="fas fa-tablet-alt"></i>
+                            <span>Version Tablette</span>
+                            <small>Optimisé iPad/Android</small>
+                        </button>
+                        <button class="platform-btn ios-btn" onclick="downloadGame('ios')">
+                            <i class="fab fa-apple"></i>
+                            <span>App Store</span>
+                            <small>Disponible iOS</small>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section PlayStation & Animés -->
+        <section id="entertainment">
+            <h2>🎯 Univers PlayStation & Animés</h2>
+            
+            <div class="entertainment-grid">
+                <!-- Section Jeux PlayStation -->
+                <div class="playstation-section">
+                    <h3><i class="fab fa-playstation"></i> Mes Jeux PlayStation</h3>
+                    <div class="games-carousel" id="psGamesCarousel">
+                        <!-- Les jeux seront générés dynamiquement par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Section Animés -->
+                <div class="anime-section">
+                    <h3><i class="fas fa-tv"></i> Animé </h3>
+                    <div class="anime-grid" id="animeGrid">
+                        <!-- Les animés seront générés dynamiquement par JavaScript -->
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- CHATBOT AVANCÉ -->
+    <!-- Chatbot -->
     <div class="chatbot-container">
         <div class="chatbot-toggle">
-            <i class="fas fa-robot"></i>
+            <i class="fas fa-comments"></i>
         </div>
         <div class="chatbot-window">
             <div class="chatbot-header">
-                <h3>Alva - Assistante IA</h3>
+                <h3>Assistante Alva</h3>
                 <button class="chatbot-close"><i class="fas fa-times"></i></button>
             </div>
             <div class="chatbot-messages">
                 <div class="message bot-message">
-                    👋 Bonjour ! Je suis Alva, votre assistante IA. Je peux vous parler de développement, technologies, projets de Daniel, ou même discuter de l'avenir du digital ! Comment puis-je vous aider ?
+                    Bonjour ! Je suis Alva, votre assistante virtuelle. Je peux vous parler de mes compétences, projets, jeux, et même vous aider à télécharger mon portfolio ou mes jeux mobiles ! Comment puis-je vous aider aujourd'hui 😊?
                 </div>
             </div>
             <div class="chatbot-input">
-                <input type="text" placeholder="Posez-moi une question...">
+                <input type="text" placeholder="Tapez votre message...">
                 <button><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
 
-    <!-- JEU AVEC CONTRÔLES ANDROID -->
+    <!-- Mini-jeu de voiture -->
     <div class="game-container">
         <div class="game-toggle">
             <i class="fas fa-gamepad"></i>
         </div>
         <div class="game-window">
             <div class="game-header">
-                <h3>Course Spatiale</h3>
+                <h3>Course de Voiture</h3>
                 <button class="game-close"><i class="fas fa-times"></i></button>
             </div>
             <div class="game-content">
@@ -1132,73 +1766,74 @@
                     <button class="game-btn" id="startGame">Commencer</button>
                     <button class="game-btn" id="resetGame">Réinitialiser</button>
                 </div>
-                <div class="android-controls">
-                    <button class="android-btn left-btn">←</button>
-                    <button class="android-btn right-btn">→</button>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER AMÉLIORÉ -->
-    <footer class="cv-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Disponibilité</h3>
-                <p>Ouvert aux nouvelles opportunités</p>
-                <p>Disponible pour collaborations</p>
-                <div class="availability-status">
-                    <span class="status-dot"></span>
-                    <span>En ligne et disponible</span>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> JuanKaisen3@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +241 07 40 85 772</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Gabon, Libreville</p>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Réseaux</h3>
-                <div class="social-footer">
-                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-                </div>
-            </div>
-            
-            <div class="footer-section download-section">
-                <h3>Téléchargement</h3>
-                <button class="download-btn" id="downloadCV">
-                    <i class="fas fa-download"></i>
-                    Télécharger 
-                </button>
-                <p class="file-size">PDF - 1.2 Mo</p>
+    <footer class="cv-footer bg-gray-800 text-white py-6 md:py-8 px-4 md:px-6">
+    <div class="footer-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Disponibilité</h3>
+            <p class="text-sm md:text-base mb-2">Recherche active de nouvelles opportunités</p>
+            <p class="text-sm md:text-base mb-3">Disponible immédiatement</p>
+            <div class="availability-status flex items-center gap-2">
+                <span class="status-dot w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-sm md:text-base">Disponible</span>
             </div>
         </div>
         
-        <div class="footer-bottom">
-            <div class="footer-legal">
-                <p>&copy; 2024 Daniel Oyougou. Tous droits réservés.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#">Mentions légales</a>
-                <a href="#">Confidentialité</a>
-                <a href="#">Cookies</a>
-            </div>
-            <div class="footer-stats">
-                <p>Dernière mise à jour: Décembre 2024</p>
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Contact</h3>
+            <div class="contact-info space-y-2">
+                <p class="flex items-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-envelope text-blue-400"></i>
+                    <a href="mailto:Juankaisen3@example.com" class="hover:text-blue-300 transition-colors">Juankaisen3@example.com</a>
+                </p>
+                <p class="flex items-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-phone text-blue-400"></i>
+                    <a href="tel:+241074085772" class="hover:text-blue-300 transition-colors">+241 074085772</a>
+                </p>
+                <p class="flex items-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-map-marker-alt text-blue-400"></i>
+                    Gabon, Libreville
+                </p>
             </div>
         </div>
-    </footer>
-
+        
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Réseaux</h3>
+            <div class="social-footer space-y-2">
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="#" class="flex items-center gap-2 text-sm md:text-base hover:text-blue-300 transition-colors">
+                    <i class="fab fa-codepen"></i> CodePen
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400">Téléchargement</h3>
+            <a href="#" onclick="downloadPortfolio(); return false;" 
+               class="download-btn bg-blue-600 hover:bg-blue-700 text-white py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors duration-300 w-full text-center block text-sm md:text-base">
+                <i class="fas fa-download mr-2"></i>
+                Télécharger le Portfolio Complet
+            </a>
+            <p class="file-size text-xs md:text-sm opacity-75 mt-2 text-center">ZIP - 2.5 MB</p>
+        </div>
+    </div>
+</footer>
+         
     <script>
-        // INTRO RAPIDE
+            
+        // Le code JavaScript
+        // Gestion du diaporama d'introduction
         document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.slide');
             const progressBar = document.querySelector('.progress');
@@ -1208,6 +1843,7 @@
             let progress = 0;
             let progressInterval;
             
+            // Fonction pour passer à la diapositive suivante
             function nextSlide() {
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
@@ -1215,381 +1851,528 @@
                 progress = 0;
             }
             
-            // VERSION RAPIDE
+            // Démarrer l'animation de progression
             function startProgress() {
                 progressInterval = setInterval(function() {
-                    progress += 2;
+                    progress += 0.5;
                     progressBar.style.width = progress + '%';
                     
                     if (progress >= 100) {
                         nextSlide();
                     }
-                }, 40);
+                }, 10);
             }
             
+            // Démarrer le diaporama
             startProgress();
             
+            // Gestion du bouton "Passer"
             skipBtn.addEventListener('click', function() {
                 clearInterval(progressInterval);
                 document.querySelector('.slideshow-container').style.display = 'none';
                 container.classList.add('show');
             });
-        });
-
-        // CHATBOT AVANCÉ
-        const botResponses = {
-            "bonjour": "👋 Bonjour ! Je suis Alva, votre assistante IA. Comment puis-je vous aider aujourd'hui ?",
-            "salut": "Salut ! Prêt à explorer l'univers digital ? Dites-moi tout ! 😊",
-            "qui es tu": "Je suis Alva, une assistance virtuel crée par Daniel Oyougou. Je peux discuter développement, technologies, projets, et bien plus !",
-            "compétences": "🚀 **Frontend** : HTML5, CSS3, JavaScript, React, Vue\n🔥 **Backend** : Node.js, Python, PHP, APIs\n🎨 **Design** : UI/UX, Figma, Design Systems\n📱 **Mobile** : React Native, PWAs",
-            "expérience": "Daniel a 5+ ans d'expérience :\n• Développement Full Stack\n• Architecture Applications\n• Gestion de Projets\n• Mentorat Technique",
-            "projets": "📂 **Types de projets** :\n• Applications Web Modernes\n• Solutions SaaS\n• Plateformes E-commerce\n• Outils Productivité\n• Applications Mobile",
-            "contact": "📧 Email: JuanKaisen3@gmail.com📱 Tél: +241 07 40 85 772\n💼 LinkedIn: /in/daniel-oyougou",
-            "technologies": "🛠 **Stack Technique** :\n• JavaScript/TypeScript\n• React/Next.js\n• Node.js/Python\n• Bases de données SQL/NoSQL\n• AWS & Docker",
-            "conseil": "💡 **Conseil du jour** : 'Le meilleur code est celui qui se lit comme une histoire bien écrite.'",
-            "fun": "😄 Saviez-vous ? Le premier programmeur était une femme : Ada Lovelace !",
-            "default": "🤔 Intéressant ! Parlez-moi de : Développement • Projets • Technologies • Collaboration • Ou autre chose ?"
-        };
-
-        // Configuration du chatbot
-        const chatbotToggle = document.querySelector('.chatbot-toggle');
-        const chatbotWindow = document.querySelector('.chatbot-window');
-        const chatbotClose = document.querySelector('.chatbot-close');
-        const chatbotInput = document.querySelector('.chatbot-input input');
-        const chatbotSend = document.querySelector('.chatbot-input button');
-        const chatbotMessages = document.querySelector('.chatbot-messages');
-
-        chatbotToggle.addEventListener('click', function() {
-            chatbotWindow.style.display = 'flex';
-        });
-
-        chatbotClose.addEventListener('click', function() {
-            chatbotWindow.style.display = 'none';
-        });
-
-        function addMessage(text, isUser) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-            messageDiv.textContent = text;
-            chatbotMessages.appendChild(messageDiv);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }
-
-        function findBestResponse(message) {
-            const lowerMessage = message.toLowerCase();
             
-            // Recherche par mots-clés
-            const keywords = {
-                "react": botResponses["technologies"],
-                "javascript": botResponses["technologies"],
-                "node": botResponses["technologies"],
-                "compétence": botResponses["compétences"],
-                "expérience": botResponses["expérience"],
-                "projet": botResponses["projets"],
-                "contact": botResponses["contact"],
-                "bonjour": botResponses["bonjour"],
-                "salut": botResponses["salut"],
-                "qui": botResponses["qui es tu"]
-            };
+            // Gestion du chatbot
+            const chatbotToggle = document.querySelector('.chatbot-toggle');
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const chatbotClose = document.querySelector('.chatbot-close');
+            const chatbotInput = document.querySelector('.chatbot-input input');
+            const chatbotSend = document.querySelector('.chatbot-input button');
+            const chatbotMessages = document.querySelector('.chatbot-messages');
+            
+            chatbotToggle.addEventListener('click', function() {
+                chatbotWindow.style.display = 'flex';
+            });
+            
+            chatbotClose.addEventListener('click', function() {
+                chatbotWindow.style.display = 'none';
+            });
+            
+            // Données pour les jeux PlayStation
+            const psGames = [
+                { name: "God of War", icon: "fas fa-axe", color: "#c0392b" },
+                { name: "Spider-Man", icon: "fas fa-spider", color: "#e74c3c" },
+                { name: "The Last of Us", icon: "fas fa-leaf", color: "#27ae60" },
+                { name: "Horizon Zero Dawn", icon: "fas fa-robot", color: "#e67e22" },
+                { name: "Uncharted 4", icon: "fas fa-map", color: "#f39c12" },
+                { name: "Ghost of Tsushima", icon: "fas fa-mask", color: "#2c3e50" }
+            ];
 
-            for (const [key, response] of Object.entries(keywords)) {
-                if (lowerMessage.includes(key)) {
-                    return response;
+            // Données pour les animés
+            const animes = [
+                { name: "Attack on Titan", icon: "fas fa-crown", color: "#34495e" },
+                { name: "Demon Slayer", icon: "fas fa-fire", color: "#e74c3c" },
+                { name: "One Piece", icon: "fas fa-skull-crossbones", color: "#f39c12" },
+                { name: "My Hero Academia", icon: "fas fa-user-ninja", color: "#9b59b6" },
+                { name: "Naruto", icon: "fas fa-leaf", color: "#27ae60" },
+                { name: "Death Note", icon: "fas fa-book", color: "#2c3e50" },
+                { name: "Dragon Ball Z", icon: "fas fa-dragon", color: "#3498db" },
+                { name: "Jujutsu Kaisen", icon: "fas fa-eye", color: "#8e44ad" }
+            ];
+
+            // Fonction pour générer les jeux PlayStation
+            function generatePSGames() {
+                const carousel = document.getElementById('psGamesCarousel');
+                psGames.forEach(game => {
+                    const gameCard = document.createElement('div');
+                    gameCard.className = 'game-card';
+                    gameCard.style.background = `linear-gradient(135deg, ${game.color}, ${game.color}99)`;
+                    gameCard.innerHTML = `
+                        <i class="${game.icon}"></i>
+                        <h4>${game.name}</h4>
+                    `;
+                    carousel.appendChild(gameCard);
+                });
+            }
+
+            // Fonction pour générer les animés
+            function generateAnimes() {
+                const grid = document.getElementById('animeGrid');
+                animes.forEach(anime => {
+                    const animeCard = document.createElement('div');
+                    animeCard.className = 'anime-card';
+                    animeCard.style.background = `linear-gradient(135deg, ${anime.color}, ${anime.color}99)`;
+                    animeCard.innerHTML = `
+                        <i class="${anime.icon}"></i>
+                        <h4>${anime.name}</h4>
+                    `;
+                    grid.appendChild(animeCard);
+                });
+            }
+
+            // Fonction de téléchargement des jeux
+            function downloadGame(platform) {
+                const platforms = {
+                    android: { name: "Android", file: "game-android.apk" },
+                    tablet: { name: "Tablette", file: "game-tablet.zip" },
+                    ios: { name: "iOS", file: "game-ios.ipa" }
+                };
+                
+                const platformInfo = platforms[platform];
+                if (platformInfo) {
+                    // Simulation de téléchargement
+                    const btn = event.target.closest('.platform-btn');
+                    const originalHTML = btn.innerHTML;
+                    
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Téléchargement...';
+                    btn.disabled = true;
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-check"></i> Téléchargé !';
+                        setTimeout(() => {
+                            btn.innerHTML = originalHTML;
+                            btn.disabled = false;
+                            
+                            // Créer un lien de téléchargement fictif
+                            const link = document.createElement('a');
+                            link.href = '#';
+                            link.download = platformInfo.file;
+                            link.click();
+                            
+                            // Message de confirmation
+                            addChatbotMessage(`Téléchargement du jeu pour ${platformInfo.name} terminé ! 🎮`, false);
+                        }, 1500);
+                    }, 2000);
                 }
             }
 
-            return botResponses.default;
-        }
+            // Fonction de téléchargement du portfolio
+            function downloadPortfolio() {
+                const btn = document.querySelector('.download-btn');
+                const originalHTML = btn.innerHTML;
+                
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Préparation...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-file-archive"></i> Téléchargement...';
+                    
+                    // Créer un fichier ZIP fictif avec tout le contenu
+                    const portfolioContent = `
+# Portfolio Daniel_Oyougou
 
-        chatbotSend.addEventListener('click', function() {
-            const message = chatbotInput.value.trim();
-            if (message) {
-                addMessage(message, true);
-                chatbotInput.value = '';
+Ce dossier contient:
+- index.html (fichier principal)
+- style.css (styles)
+- script.js (fonctionnalités)
+- assets/ (images et ressources)
+- games/ (jeux téléchargeables)
+- documentation/ (explications des projets)
 
-                // Fermeture en cliquant en dehors - VERSION CORRIGÉE
+Contact: daniel@example.com
+                    `;
+                    
+                    const blob = new Blob([portfolioContent], { type: 'application/zip' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'portfolio-daniel-oyougou.zip';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-check"></i> Téléchargé !';
+                        setTimeout(() => {
+                            btn.innerHTML = originalHTML;
+                            btn.disabled = false;
+                            addChatbotMessage("Portfolio téléchargé avec succès ! 📦 N'hésitez pas à explorer les dossiers.", false);
+                        }, 2000);
+                    }, 1000);
+                    
+                }, 1500);
+            }
+            
+            // Réponses du chatbot
+            const botResponses = {
+                "bonjour": "Bonjour ! Comment puis-je vous aider aujourd'hui 😊?",
+                "yo": " Yo ! Qu'est-ce que je peux faire pour toi ?🙃",
+                "ton anime fav ":
+        "bleach mon parent ❤️😏forever",
+        
+  "comment vas tu" : "tranquille😣et de ton côté ?",
+  
+  "cc": "cv toi 🙂‍↕️?",
+  
+          "oui et toi": " Bah! cv je peux faire quoi pour toi 🙂",
+          
+                "dis moi " : "quoi ?",
+                
+                
+                "qui ta crée": "J'ai été crée par Daniel_Oyougou pour vous aider à naviguer dans son portfolio.",
+                "salut": "Salut man ! Que souhaites-tu savoir sur mon profil ?",
+                             "quelle sont tes compétences":
+                             " Bah!🥱 Je maîtrise HTML, CSS, JavaScript, React, Node.js, Python et bien plus. Consultez la section 'Compétences' pour plus de détails.",
+                "ton expérience": "J'ai 5 ans😎 d'expérience en développement web. Vous trouverez mes expériences professionnelles dans la section dédiée.",
+                "formation": "J'ai un Master en Informatique de l'Université de Technologie. Consultez la section 'Formation' pour plus d'informations. bon 🤣Sia tout c'est le marché hein",
+                
+          
+           "projets": "J'ai travaillé sur de nombreux projets web, allant des sites vitrines aux applications complexes. N'hésitez pas à me contacter pour en discuter !",
+                "je peux avoir ton num": "Vous pouvez me contacter par email à Juankaisen3@example.com ou via mes réseaux sociaux en haut de la page.",
+                "télécharger": "Je peux vous aider à télécharger mes jeux pour Android, tablette ou iOS ! Dites-moi quelle plateforme vous intéresse 📱",
+                "jeu": "J'ai développé plusieurs jeux disponibles sur mobile et tablette. Vous pouvez les télécharger dans la section 'Jeux Multi-plateformes' 🎮",
+        
+        
+        "tu peux faire quoi ": 
+   "Bah ce dont j'ai été programmer !",
+                "playstation": "Je suis passionné par les jeux PlayStation ! Mes préférés sont God of War, Spider-Man et The Last of Us. Découvrez-les dans ma section dédiée 🎯",
+                "animé": "J'aime bien les animés !  genre Attack on Titan, Demon Slayer et One Piece. Parcourez ma collection dans la section dédiée 📺",
+                "android": "Pour télécharger sur Android, cliquez sur le bouton 'Télécharger pour Android' dans la section Jeux Multi-plateformes 📱",
+                "tablette": "La version tablette est optimisée pour iPad et Android. Téléchargez-la via le bouton dédié dans ma section jeux 📲",
+                "portfolio": "Vous pouvez télécharger mon portfolio complet en cliquant sur le bouton de téléchargement dans le footer. C'est un fichier ZIP contenant tous mes projets 📦",
+               
+                "default": "waze bien stp ? Vous pouvez me demander des informations sur mes compétences, mon expérience, ma formation, mes projets, mes jeux ou mes animés."
+            };
+            
+            function addMessage(text, isUser) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+                messageDiv.innerHTML = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+            
+            function processMessage(message) {
+                const lowerMessage = message.toLowerCase();
+                let response = botResponses.default;
+                
+                for (const key in botResponses) {
+                    if (lowerMessage.includes(key)) {
+                        response = botResponses[key];
+                        break;
+                    }
+                }
+                
+                addMessage(response, false);
+            }
+            
+            chatbotSend.addEventListener('click', function() {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    chatbotInput.value = '';
+                    
+                    // Simuler un délai de réponse
+                    setTimeout(function() {
+                        processMessage(message);
+                    }, 1000);
+                }
+            });
+            
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    chatbotSend.click();
+                }
+            });
+            // Fermeture en cliquant en dehors
 document.addEventListener('click', function(event) {
     const chatbotWindow = document.querySelector('.chatbot-window');
     const chatbotToggle = document.querySelector('.chatbot-toggle');
     const gameWindow = document.querySelector('.game-window');
     const gameToggle = document.querySelector('.game-toggle');
     
-    if (chatbotWindow.style.display === 'flex' && 
-        !chatbotWindow.contains(event.target) && 
-        !chatbotToggle.contains(event.target)) {
-        chatbotWindow.style.display = 'none';
+    // Fermer le chatbot si on clique en dehors
+    if (chatbotWindow && chatbotWindow.style.display === 'flex') {
+        if (!chatbotWindow.contains(event.target) && !chatbotToggle.contains(event.target)) {
+            chatbotWindow.style.display = 'none';
+        }
     }
     
-    if (gameWindow.style.display === 'flex' && 
-        !gameWindow.contains(event.target) && 
-        !gameToggle.contains(event.target)) {
-        gameWindow.style.display = 'none';
+    // Fermer le jeu si on clique en dehors
+    if (gameWindow && gameWindow.style.display === 'flex') {
+        if (!gameWindow.contains(event.target) && !gameToggle.contains(event.target)) {
+            gameWindow.style.display = 'none';
+        }
     }
 });
-                // Indicateur de frappe
-                const typingIndicator = document.createElement('div');
-                typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
-                typingIndicator.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-                chatbotMessages.appendChild(typingIndicator);
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-                
-                setTimeout(function() {
-                    chatbotMessages.removeChild(typingIndicator);
-                    const response = findBestResponse(message);
-                    addMessage(response, false);
-                }, 1000);
-            }
-        });
-
-        chatbotInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                chatbotSend.click();
-            }
-        });
-
-        // TÉLÉCHARGEMENT CV
-        document.getElementById('downloadCV').addEventListener('click', function() {
-            // Simulation d'un téléchargement
-            const link = document.createElement('a');
-            link.href = '#';
-            link.download = 'CV_Daniel_Oyougou.pdf';
-            link.click();
-            
-            // Message de confirmation
-            alert('Téléchargement du CV démarré !');
-        });
-
-        // JEU VOITURE AVEC CONTRÔLES ANDROID
-        const gameToggle = document.querySelector('.game-toggle');
-        const gameWindow = document.querySelector('.game-window');
-        const gameClose = document.querySelector('.game-close');
-        const startGameBtn = document.getElementById('startGame');
-        const resetGameBtn = document.getElementById('resetGame');
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        const leftBtn = document.querySelector('.left-btn');
-        const rightBtn = document.querySelector('.right-btn');
-
-        gameToggle.addEventListener('click', function() {
-            gameWindow.style.display = 'flex';
-        });
-
-        gameClose.addEventListener('click', function() {
-            gameWindow.style.display = 'none';
-        });
-
-        // Variables du jeu
-        let carX = canvas.width / 2 - 15;
-        let carY = canvas.height - 80;
-        let carWidth = 30;
-        let carHeight = 50;
-        let carSpeed = 0;
-        let roadWidth = 200;
-        let roadX = (canvas.width - roadWidth) / 2;
-        let roadMarkings = [];
-        let obstacles = [];
-        let gameRunning = false;
-        let score = 0;
-
-        // Initialisation
-        for (let i = 0; i < 5; i++) {
-            roadMarkings.push({
-                x: roadX + roadWidth / 2 - 2,
-                y: i * 100,
-                width: 4,
-                height: 20
-            });
-        }
-
-        // Contrôles Android
-        leftBtn.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            carSpeed = -5;
-        });
-
-        leftBtn.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            carSpeed = 0;
-        });
-
-        rightBtn.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            carSpeed = 5;
-        });
-
-        rightBtn.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            carSpeed = 0;
-        });
-
-        // Fonctions du jeu
-        function drawCar() {
-            ctx.fillStyle = '#e74c3c';
-            ctx.fillRect(carX, carY, carWidth, carHeight);
-            
-            ctx.fillStyle = '#3498db';
-            ctx.fillRect(carX + 5, carY + 5, carWidth - 10, 10);
-            ctx.fillRect(carX + 5, carY + 20, carWidth - 10, 15);
-            
-            ctx.fillStyle = '#2c3e50';
-            ctx.fillRect(carX - 3, carY + 5, 3, 10);
-            ctx.fillRect(carX - 3, carY + 35, 3, 10);
-            ctx.fillRect(carX + carWidth, carY + 5, 3, 10);
-            ctx.fillRect(carX + carWidth, carY + 35, 3, 10);
-        }
-
-        function drawRoad() {
-            ctx.fillStyle = '#34495e';
-            ctx.fillRect(roadX, 0, roadWidth, canvas.height);
-            
-            ctx.fillStyle = '#95a5a6';
-            ctx.fillRect(roadX - 5, 0, 5, canvas.height);
-            ctx.fillRect(roadX + roadWidth, 0, 5, canvas.height);
-            
-            ctx.fillStyle = '#ffffff';
-            for (let marking of roadMarkings) {
-                ctx.fillRect(marking.x, marking.y, marking.width, marking.height);
-            }
-        }
-
-        function drawObstacles() {
-            ctx.fillStyle = '#f1c40f';
-            for (let obstacle of obstacles) {
-                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-                
-                // Ajouter des détails aux obstacles pour les rendre plus visibles
-                ctx.fillStyle = '#e67e22';
-                ctx.fillRect(obstacle.x + 5, obstacle.y + 5, obstacle.width - 10, obstacle.height - 10);
-                ctx.fillStyle = '#f1c40f';
-            }
-        }
-
-        function updateGame() {
-            if (!gameRunning) return;
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawRoad();
-            
-            for (let marking of roadMarkings) {
-                marking.y += 3;
-                if (marking.y > canvas.height) {
-                    marking.y = -20;
-                }
-            }
-            
-            for (let obstacle of obstacles) {
-                obstacle.y += 5;
-                if (obstacle.y > canvas.height) {
-                    obstacle.y = -30;
-                    obstacle.x = roadX + Math.random() * (roadWidth - 30);
-                    score += 1;
-                }
-                
-                if (carX < obstacle.x + obstacle.width &&
-                    carX + carWidth > obstacle.x &&
-                    carY < obstacle.y + obstacle.height &&
-                    carY + carHeight > obstacle.y) {
-                    gameRunning = false;
-                    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.fillStyle = '#e74c3c';
-                    ctx.font = '24px Arial';
-                    ctx.fillText('Game Over!', canvas.width / 2 - 70, canvas.height / 2 - 20);
-                    ctx.font = '18px Arial';
-                    ctx.fillText(`Score: ${score}`, canvas.width / 2 - 40, canvas.height / 2 + 10);
-                    return;
-                }
-            }
-            
-            carX += carSpeed;
-            if (carX < roadX) carX = roadX;
-            if (carX + carWidth > roadX + roadWidth) carX = roadX + roadWidth - carWidth;
-            
-            drawCar();
-            drawObstacles();
-            
-            ctx.fillStyle = '#ffffff';
-            ctx.font = '16px Arial';
-            ctx.fillText(`Score: ${score}`, 10, 20);
-            
-            requestAnimationFrame(updateGame);
-        }
-
-        startGameBtn.addEventListener('click', function() {
-            if (!gameRunning) {
-                gameRunning = true;
-                score = 0;
-                obstacles = [];
-                
-                for (let i = 0; i < 3; i++) {
-                    obstacles.push({
-                        x: roadX + Math.random() * (roadWidth - 30),
-                        y: -30 - i * 150,
-                        width: 30,
-                        height: 30
-                    });
-                }
-                
-                updateGame();
-            }
-        });
-
-        resetGameBtn.addEventListener('click', function() {
-            gameRunning = false;
-            carX = canvas.width / 2 - 15;
-            carY = canvas.height - 80;
-            carSpeed = 0;
-            obstacles = [];
-            score = 0;
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawRoad();
-            drawCar();
-        });
-        // Redimensionnement responsive du canvas
-function resizeCanvas() {
-    const canvas = document.getElementById('gameCanvas');
-    const gameContent = document.querySelector('.game-content');
+            // Vérification de la position du chatbot
+function checkChatbotPosition() {
+    const chatbot = document.querySelector('.chatbot-window');
+    const container = document.querySelector('.chatbot-container');
     
-    if (window.innerWidth <= 480) {
-        canvas.width = 280;
-        canvas.height = 300;
-    } else if (window.innerWidth <= 768) {
-        canvas.width = 320;
-        canvas.height = 350;
-    } else {
-        canvas.width = 350;
-        canvas.height = 400;
-    }
-    
-    // Redessiner si le jeu est en cours
-    if (!gameRunning) {
-        drawRoad();
-        drawCar();
+    if (chatbot && container) {
+        console.log('Chatbot position:', {
+            chatbotRight: chatbot.style.right,
+            chatbotLeft: chatbot.style.left,
+            containerRight: container.style.right,
+            windowWidth: window.innerWidth
+        });
     }
 }
 
-// Écouter le redimensionnement
-window.addEventListener('resize', resizeCanvas);
+// Tester quand le chatbot s'ouvre
+document.querySelector('.chatbot-toggle').addEventListener('click', function() {
+    setTimeout(checkChatbotPosition, 100);
+});
 
-// Initialiser au chargement
-window.addEventListener('load', resizeCanvas);
+//fermeture quand on clique à l'intérieur
+document.querySelector('.chatbot-window')?.addEventListener('click', function(event) {
+    event.stopPropagation();
+});
 
-        // Initialisation du jeu
-        drawRoad();
-        drawCar();
-
-        // Fermeture en cliquant en dehors
-        document.addEventListener('click', function(event) {
-            if (!chatbotWindow.contains(event.target) && !chatbotToggle.contains(event.target)) {
-                chatbotWindow.style.display = 'none';
-            }
-            if (!gameWindow.contains(event.target) && !gameToggle.contains(event.target)) {
+document.querySelector('.game-window')?.addEventListener('click', function(event) {
+    event.stopPropagation();
+});
+            
+            // Gestion du mini-jeu
+            const gameToggle = document.querySelector('.game-toggle');
+            const gameWindow = document.querySelector('.game-window');
+            const gameClose = document.querySelector('.game-close');
+            const startGameBtn = document.getElementById('startGame');
+            const resetGameBtn = document.getElementById('resetGame');
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            gameToggle.addEventListener('click', function() {
+                gameWindow.style.display = 'flex';
+            });
+            
+            gameClose.addEventListener('click', function() {
                 gameWindow.style.display = 'none';
+            });
+            
+            // Variables du jeu
+            let carX = canvas.width / 2 - 15;
+            let carY = canvas.height - 80;
+            let carWidth = 30;
+            let carHeight = 50;
+            let carSpeed = 0;
+            let roadWidth = 200;
+            let roadX = (canvas.width - roadWidth) / 2;
+            let roadMarkings = [];
+            let obstacles = [];
+            let gameRunning = false;
+            let score = 0;
+            
+            // Initialiser les marquages routiers
+            for (let i = 0; i < 5; i++) {
+                roadMarkings.push({
+                    x: roadX + roadWidth / 2 - 2,
+                    y: i * 100,
+                    width: 4,
+                    height: 20
+                });
             }
+            
+            // Fonction pour dessiner la voiture
+            function drawCar() {
+                ctx.fillStyle = '#e74c3c';
+                ctx.fillRect(carX, carY, carWidth, carHeight);
+                
+                // Vitres
+                ctx.fillStyle = '#3498db';
+                ctx.fillRect(carX + 5, carY + 5, carWidth - 10, 10);
+                ctx.fillRect(carX + 5, carY + 20, carWidth - 10, 15);
+                
+                // Roues
+                ctx.fillStyle = '#2c3e50';
+                ctx.fillRect(carX - 3, carY + 5, 3, 10);
+                ctx.fillRect(carX - 3, carY + 35, 3, 10);
+                ctx.fillRect(carX + carWidth, carY + 5, 3, 10);
+                ctx.fillRect(carX + carWidth, carY + 35, 3, 10);
+            }
+            
+            // Fonction pour dessiner la route
+            function drawRoad() {
+                // Route
+                ctx.fillStyle = '#34495e';
+                ctx.fillRect(roadX, 0, roadWidth, canvas.height);
+                
+                // Bordures
+                ctx.fillStyle = '#95a5a6';
+                ctx.fillRect(roadX - 5, 0, 5, canvas.height);
+                ctx.fillRect(roadX + roadWidth, 0, 5, canvas.height);
+                
+                // Marquages routiers
+                ctx.fillStyle = '#ffffff';
+                for (let i = 0; i < roadMarkings.length; i++) {
+                    const marking = roadMarkings[i];
+                    ctx.fillRect(marking.x, marking.y, marking.width, marking.height);
+                }
+            }
+            
+            // Fonction pour dessiner les obstacles
+            function drawObstacles() {
+                ctx.fillStyle = '#f39c12';
+                for (let i = 0; i < obstacles.length; i++) {
+                    const obstacle = obstacles[i];
+                    ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                }
+            }
+            
+            // Fonction pour mettre à jour le jeu
+            function updateGame() {
+                if (!gameRunning) return;
+                
+                // Effacer le canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Dessiner la route
+                drawRoad();
+                
+                // Mettre à jour et dessiner les marquages routiers
+                for (let i = 0; i < roadMarkings.length; i++) {
+                    roadMarkings[i].y += 3;
+                    if (roadMarkings[i].y > canvas.height) {
+                        roadMarkings[i].y = -20;
+                    }
+                }
+                
+                // Mettre à jour et dessiner les obstacles
+                for (let i = 0; i < obstacles.length; i++) {
+                    obstacles[i].y += 5;
+                    if (obstacles[i].y > canvas.height) {
+                        obstacles[i].y = -30;
+                        obstacles[i].x = roadX + Math.random() * (roadWidth - 30);
+                        score += 1;
+                    }
+                    
+                    // Détection de collision
+                    if (
+                        carX < obstacles[i].x + obstacles[i].width &&
+                        carX + carWidth > obstacles[i].x &&
+                        carY < obstacles[i].y + obstacles[i].height &&
+                        carY + carHeight > obstacles[i].y
+                    ) {
+                        gameRunning = false;
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        ctx.fillStyle = '#e74c3c';
+                        ctx.font = '24px Arial';
+                        ctx.fillText('Game Over!', canvas.width / 2 - 70, canvas.height / 2 - 20);
+                        ctx.font = '18px Arial';
+                        ctx.fillText(`Score: ${score}`, canvas.width / 2 - 40, canvas.height / 2 + 10);
+                        return;
+                    }
+                }
+                
+                // Mettre à jour la position de la voiture
+                carX += carSpeed;
+                
+                // Limites de la route
+                if (carX < roadX) carX = roadX;
+                if (carX + carWidth > roadX + roadWidth) carX = roadX + roadWidth - carWidth;
+                
+                // Dessiner la voiture
+                drawCar();
+                
+                // Dessiner les obstacles
+                drawObstacles();
+                
+                // Afficher le score
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '16px Arial';
+                ctx.fillText(`Score: ${score}`, 10, 20);
+                
+                // Continuer l'animation
+                requestAnimationFrame(updateGame);
+            }
+            
+            // Gestion des touches du clavier
+            document.addEventListener('keydown', function(e) {
+                if (!gameRunning) return;
+                
+                if (e.key === 'ArrowLeft' || e.key === 'q') {
+                    carSpeed = -5;
+                } else if (e.key === 'ArrowRight' || e.key === 'd') {
+                    carSpeed = 5;
+                }
+            });
+            
+            document.addEventListener('keyup', function(e) {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'q' || e.key === 'd') {
+                    carSpeed = 0;
+                }
+            });
+            
+            // Boutons de contrôle du jeu
+            startGameBtn.addEventListener('click', function() {
+                if (!gameRunning) {
+                    gameRunning = true;
+                    score = 0;
+                    obstacles = [];
+                    
+                    // Créer quelques obstacles
+                    for (let i = 0; i < 3; i++) {
+                        obstacles.push({
+                            x: roadX + Math.random() * (roadWidth - 30),
+                            y: -30 - i * 150,
+                            width: 30,
+                            height: 30
+                        });
+                    }
+                    
+                    updateGame();
+                }
+            });
+            
+            resetGameBtn.addEventListener('click', function() {
+                gameRunning = false;
+                carX = canvas.width / 2 - 15;
+                carY = canvas.height - 80;
+                carSpeed = 0;
+                obstacles = [];
+                score = 0;
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawRoad();
+                drawCar();
+            });
+            
+            // Initialiser l'affichage du jeu
+            drawRoad();
+            drawCar();
+            
+            // Générer les sections dynamiques
+            generatePSGames();
+            generateAnimes();
         });
+     
     </script>
+    
 </body>
 </html>
-
